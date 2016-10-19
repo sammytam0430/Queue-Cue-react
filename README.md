@@ -1,13 +1,14 @@
 Lighthouse Labs Final Project
 ===============================
 
-A minimal and light dev environment for ReactJS.
-
 ### Contributors
 
 Sammy Tam @sammytam0430
+
 Tong Yap @to-y
+
 Natalie Mok @nataliemok
+
 Jen Yee @jenyeeiam
 
 ### Dependencies
