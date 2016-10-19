@@ -45,6 +45,10 @@
     "webpack-dev-server": "1.14.1"
   },
   "dependencies": {
+    "bootstrap": "4.0.0-alpha.5",
+    "dotenv": "2.0.0",
+    "knex": "0.12.6",
+    "pg": "6.1.0",
     "react": "15.2.1",
     "react-dom": "15.2.1"
   }
