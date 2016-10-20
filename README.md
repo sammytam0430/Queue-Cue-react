@@ -1,5 +1,6 @@
-Lighthouse Labs Final Project
+Queue Cue - Lighthouse Labs Final Project
 ===============================
+QueueCue is a restaurant waiting app, allowing users to see current conditions for nearby restaurants. As a user, you will be able to add your party to the queue, and will receive a cue when it's your turn!
 
 ### Contributors
 
