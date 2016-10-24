@@ -1,4 +1,15 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'
+
+function restaurants(state = {}, action) {
+  switch (action.type) {
+    case 'SHOW_RESTAURANTS':
+      return {...state,
+        // {something}
+      }
+    default:
+      return state
+  }
+}
 
 function addUser(state = [], action) {
   switch (action.type) {
@@ -19,4 +30,4 @@ const reducers = combineReducers ({
   addUser
 });
 
-export default reducers;
+

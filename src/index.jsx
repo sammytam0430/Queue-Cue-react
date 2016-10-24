@@ -4,9 +4,14 @@
 require("../styles/application.scss");
 let request = require('superagent');
 
-// Render the top-level React component
+// React and Redux
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
+
+// Render the top-level React component
+import reducers from './reducers';
 import App from './App.jsx';
 import UserMainLayout from './customer/UserMainLayout.jsx';
 import UserContainer from './customer/UserContainer.jsx';
@@ -20,6 +25,7 @@ import { Router, Route, IndexRoute, IndexRedirect, browserHistory } from 'react-
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import reducers from './reducers.js';
+
 
 let store = createStore(reducers);
 let unsubscribe = store.subscribe(() => {
