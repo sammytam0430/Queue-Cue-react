@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
+import Restaurants from './Restaurants.jsx';
+import UsersContainer from './UsersContainer.jsx';
 
-class App extends Component {
-  render() {
-    return (
-      <h1>Hello React :)</h1>
-    );
-  }
-}
+const App = () => (
+  <div>
+    <Restaurants />
+    <UsersContainer />
+  </div>
+)
 export default App;

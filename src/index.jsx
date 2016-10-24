@@ -10,6 +10,7 @@ import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 
 // Render the top-level React component
+import reducers from './reducers';
 import App from './App.jsx';
 
 // create the store
@@ -21,6 +22,6 @@ let unsubscribe = store.subscribe(() =>
 ReactDOM.render(
   <Provider store={store}>
     <App />
-  </Provider>, 
+  </Provider>,
   document.getElementById('react-root')
 );
