@@ -1,22 +1,41 @@
 import { Link } from 'react-router';
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+import { reducers } from '../reducers.js';
 
-const Login = React.createClass ({
-
-  render() {
-    return (
-      <div>
-        <h1>Login</h1>
-        <form action="/tweets" method= "POST">
-          <span> name </span>
-          <span> email </span>
-          <span> number </span>
-          <span> party size </span>
-          <input type="submit" value="Log in" />
-        </form>
-      </div>
-    );
+function addUser(name, email) {
+  return {
+    type: 'ADD_USER',
+    name: name,
+    email: email
   }
-});
+}
 
-export default Login;
+let Login = ({ dispatch }) => {
+  let name
+  let email
+
+  return (
+    <div>
+      <h1>Login</h1>
+      <form action="/" onSubmit={e => {
+        e.preventDefault()
+        dispatch(addUser(name.value, email.value))
+        name.value = ''
+        email.value = ''
+      }}>
+      <input ref={node => {
+        name = node
+      }} />
+      <input ref={node => {
+        email = node
+      }} />
+      <button type='submit'>
+        Login
+      </button>
+      </form>
+    </div>
+  );
+}
+
+export default connect()(Login);
