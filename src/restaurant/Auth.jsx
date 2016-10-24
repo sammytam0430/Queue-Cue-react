@@ -17,7 +17,7 @@ const Auth = React.createClass ({
 
   checkForUser() {
     //change to check user exists later
-    if (true) {
+    if (false) {
       browserHistory.push("/restaurants/:restaurantId")
     } else {
       browserHistory.push("/restaurants/checkin")
