@@ -18,7 +18,7 @@ let UserContainer = ({ dispatch }) => {
   return (
     <div className="row">
       <form className="form-inline" onSubmit={e => {
-        e.preventDefault();
+        e.preventDefault()
         dispatch(addUser(name.value, phone.value))
         name.value = ''
         phone.value = ''
@@ -29,7 +29,7 @@ let UserContainer = ({ dispatch }) => {
           }} />
         </div>
         <div className="form-group">
-          <input type="email" className="form-control" placeholder="email" ref={node =>{
+          <input type="text" className="form-control" placeholder="email" ref={node =>{
             phone = node
           }} />
         </div>

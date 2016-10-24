@@ -16,7 +16,7 @@ import App from './App.jsx';
 // create the store
 let store = createStore(reducers);
 let unsubscribe = store.subscribe(() =>
-  console.log("Index", store.getState())
+  console.log(store.getState())
 );
 
 ReactDOM.render(
