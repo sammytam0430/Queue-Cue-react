@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { reducers } from '../reducers.js';
 import ajax from 'superagent';
 
+//need to add ID to restaurants and password identification etc.
 function postData(name, food_type, location) {
   ajax.post('http://localhost:3000/restaurants')
   .send({name: name, food_type: food_type, location: location})
