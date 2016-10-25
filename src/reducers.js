@@ -1,19 +1,8 @@
 import { combineReducers } from 'redux'
 
-function restaurants(state = {}, action) {
+function addRestaurant(state = [], action) {
   switch (action.type) {
-    case 'SHOW_RESTAURANTS':
-      return {...state,
-        // {something}
-      }
-    default:
-      return state
-  }
-}
-
-function addUser(state = [], action) {
-  switch (action.type) {
-    case 'ADD_USER':
+    case 'ADD_RESTAURANT':
     return [
     ...state,
     {
@@ -27,7 +16,7 @@ function addUser(state = [], action) {
 };
 
 const reducers = combineReducers ({
-  addUser
+  addRestaurant
 });
 
-
+export default reducers;

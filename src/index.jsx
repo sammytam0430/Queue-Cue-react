@@ -2,13 +2,11 @@
 
 // Load up the application styles
 require("../styles/application.scss");
-let request = require('superagent');
 
 // React and Redux
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, combineReducers } from 'redux';
-import { Provider } from 'react-redux';
 
 // Render the top-level React component
 import reducers from './reducers';
@@ -23,15 +21,11 @@ import Login from './general/Login.jsx';
 import Signup from './general/Signup.jsx';
 import { Router, Route, IndexRoute, IndexRedirect, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import reducers from './reducers.js';
 
 
 let store = createStore(reducers);
 let unsubscribe = store.subscribe(() => {
   console.log(store.getState());
-  console.log(store.getState().addUser[0].name);
-  console.log(store.getState().addUser[0]);
 });
 
 ReactDOM.render((

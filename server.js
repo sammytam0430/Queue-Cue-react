@@ -11,7 +11,7 @@ new WebpackDevServer(webpack(config), {
     },
     historyApiFallback: true
   })
-  .listen(3000, '0.0.0.0', function (err, result) {
+  .listen(4000, '0.0.0.0', function (err, result) {
     if (err) {
       console.log(err);
     }
