@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux'
 
-function addUser(state = [], action) {
+function addRestaurant(state = [], action) {
   switch (action.type) {
-    case 'ADD_USER':
+    case 'ADD_RESTAURANT':
     return [
     ...state,
     {
@@ -16,7 +16,7 @@ function addUser(state = [], action) {
 };
 
 const reducers = combineReducers ({
-  addUser
+  addRestaurant
 });
 
 export default reducers;
