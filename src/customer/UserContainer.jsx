@@ -10,7 +10,7 @@ function getData() {
     if (err || !res.ok) {
       console.log('error?????', err);
     } else {
-      console.log(res);
+      console.log(res.body);
     }
   })
 }
