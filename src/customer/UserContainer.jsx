@@ -17,8 +17,6 @@ function getData() {
   })
 }
 
-
-
 const UserContainer = React.createClass ({
 
   render() {
