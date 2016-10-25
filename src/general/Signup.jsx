@@ -7,7 +7,7 @@ import ajax from 'superagent';
 import RestaurantClient from '../rest_clients/restaurants.js';
 import RestaurantActions from '../restaurant/actions.js'
 
-<<<<<<< HEAD
+
 //need to add ID to restaurants and password identification etc.
 function postData(name, food_type, location) {
   ajax.post('http://localhost:3000/restaurants')
