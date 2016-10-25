@@ -13,6 +13,7 @@ import reducers from './reducers';
 import App from './App.jsx';
 import UserMainLayout from './customer/UserMainLayout.jsx';
 import UserContainer from './customer/UserContainer.jsx';
+// import AddReservation from './general/AddReservation.jsx';
 import RestaurantMainLayout from './restaurant/RestaurantMainLayout.jsx';
 import RestaurantProfile from './restaurant/RestaurantProfile.jsx';
 import CheckIn from './restaurant/CheckIn.jsx';
@@ -33,6 +34,7 @@ ReactDOM.render((
     <Router history={browserHistory}>
       <Route path="/" component={UserMainLayout}>
         <IndexRoute component={UserContainer} />
+        {/* <Route path="addReservation" component={addReservation} /> */}
       </Route>
 
       <Route path ="restaurants" component={RestaurantMainLayout}>
