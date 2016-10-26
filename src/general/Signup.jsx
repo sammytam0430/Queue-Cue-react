@@ -7,7 +7,6 @@ import ajax from 'superagent';
 import RestaurantClient from '../rest_clients/restaurants.js';
 import RestaurantActions from '../restaurant/actions.js'
 
-// connect()(RestaurantActions)
 
 function handleSubmit(name, food_type, location, dispatch) {
   RestaurantClient.create(name, food_type, location, function(restaurant){
