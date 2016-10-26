@@ -37,7 +37,8 @@ function addGroup(state = [], action) {
       {
         id: action.id,
         party_size: action.party_size,
-        time_added: 15
+        time_added: 15,
+        completed: false
       }]
     default:
       return state
