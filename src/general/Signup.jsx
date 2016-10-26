@@ -2,7 +2,6 @@
 import { Link, browserHistory } from 'react-router';
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { reducers } from '../reducers.js';
 import ajax from 'superagent';
 import RestaurantClient from '../rest_clients/restaurants.js';
 import RestaurantActions from '../restaurant/actions.js'

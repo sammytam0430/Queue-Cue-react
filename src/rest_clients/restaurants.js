@@ -14,7 +14,21 @@ function create(name, food_type, location, cb) {
   })
 }
 
+function get(cb) {
+    ajax.get('http://localhost:3000/restaurants')
+    .end(function(err, res) {
+      if (err || !res.ok) {
+        console.log('error?????', err);
+      } else {
+        console.log(res.body);
+        cb(res.body)
+      }
+    })
+}
+
+
 
 export default {
-  create
+  create,
+  get
 }

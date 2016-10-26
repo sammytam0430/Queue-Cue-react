@@ -15,8 +15,24 @@ function addRestaurant(state = [], action) {
   }
 };
 
+const restaurantDefaultState = {
+  restaurant_list: []
+}
+
+function displayRestaurant(state = restaurantDefaultState, action) {
+  switch (action.type) {
+    case 'RESTAURANT_LIST':
+    return Object.assign({}, state, {
+      restaurant_list: action.restaurant_list
+    })
+    default:
+    return state
+  }
+};
+
 const reducers = combineReducers ({
-  addRestaurant
+  addRestaurant,
+  displayRestaurant
 });
 
 export default reducers;

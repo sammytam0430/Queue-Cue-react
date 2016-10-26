@@ -5,32 +5,48 @@ import ListWidget from '../general/ListWidget.jsx';
 import ajax from 'superagent';
 import AddReservationBtn from '../general/AddReservationBtn.jsx';
 import AddReservationForm from '../general/AddReservationForm.jsx';
+import { Link, browserHistory } from 'react-router';
+import { connect } from 'react-redux';
+import { reducers } from '../reducers.js';
+import RestaurantClient from '../rest_clients/restaurants.js';
+import * as RestaurantActions from '../restaurant/actions.js'
 
-function getData() {
-  ajax.get('http://localhost:3000/restaurants')
-  .end(function(err, res) {
-    if (err || !res.ok) {
-      console.log('error?????', err);
-    } else {
-      console.log(res.body);
+function mapDispatchToProps(dispatch) {
+  return {
+    storeData() {
+      RestaurantClient.get(function(data){
+        dispatch(RestaurantActions.restaurantList(data));
+      });
     }
-  })
+  };
 }
+
+function mapStateToProps(state)
+{
+  return {
+    restaurants: state.displayRestaurant.restaurant_list
+  };
+};
 
 const UserContainer = React.createClass ({
 
+  componentWillMount() {
+    this.props.storeData();
+  },
+
   render() {
+    const { restaurants } = this.props;
     return (
     <div>
       <h1>UserContainer</h1>
-      <h1>{getData()}</h1>
       <SearchBar />
       <LocationBar />
-      <ListWidget />
+      <ListWidget data={restaurants} />
       <AddReservationBtn />
       <AddReservationForm />
     </div>
     );
   }
 });
-export default UserContainer;
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserContainer);
