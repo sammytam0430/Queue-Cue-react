@@ -15,7 +15,7 @@ const ListWidget = React.createClass ({
           {
             return <div key={el.id}>
               <pre >{JSON.stringify(el)}</pre>
-              <this.props.button1 {... el} />
+                <this.props.button1 {... el} />
             </div>;
           })
         }
