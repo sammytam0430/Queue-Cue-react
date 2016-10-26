@@ -2,12 +2,10 @@
 import { Link, browserHistory } from 'react-router';
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import { reducers } from '../reducers.js';
 import ajax from 'superagent';
 import RestaurantClient from '../rest_clients/restaurants.js';
 import RestaurantActions from '../restaurant/actions.js'
 
-// connect()(RestaurantActions)
 
 function handleSubmit(name, food_type, location, dispatch) {
   RestaurantClient.create(name, food_type, location, function(restaurant){

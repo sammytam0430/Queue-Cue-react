@@ -1,11 +1,21 @@
 //takes object and iterates through to display it
 import React, {Component} from 'react';
 
+
 const ListWidget = React.createClass ({
+
+
 
   render() {
     return (
-      <h1>ListWidget</h1>
+      <div>
+        <h1>List Widget</h1>
+        {
+          this.props.data.map((el) =>{
+           return <pre key={el.id}>{JSON.stringify(el)}</pre>;
+          })
+        }
+      </div>
     );
   }
 });
