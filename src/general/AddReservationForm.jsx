@@ -1,30 +1,27 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import CustomerClient from '../customer_clients/customers.js';
+import ReservationActions from '../reservation/actions.js';
 
-
-function handleSubmit(name, phone, email, party_size) {
-  CustomerClient.newRes(name, phone, email, party_size)
-
-  // function(restaurant){
-  //   dispatch(RestaurantActions.addRestaurant(name, food_type, location))
-  //   browserHistory.push("/restaurants/:restaurantId")
-  // })
+function handleSubmit(name, phone, email, party_size, dispatch) {
+  CustomerClient.newRes(name, phone, email, party_size,
+  function(party){
+    dispatch(ReservationActions.addGroup(party));
+  })
 }
 
-
-let AddReservationForm = () => {
+let AddReservationForm = ({ dispatch }) => {
   let name
   let phone
   let email
   let party_size
-
 
   return (
     <div>
       <h1>Make a Reservation</h1>
       <form action="/" onSubmit={e => {
         e.preventDefault()
-        handleSubmit(name.value, phone.value, email.value, party_size.value)
+        handleSubmit(name.value, phone.value, email.value, party_size.value, dispatch)
       }}>
         <input placeholder="name" ref={node => {
           name = node
@@ -46,4 +43,4 @@ let AddReservationForm = () => {
   );
 }
 
-export default AddReservationForm;
+export default connect()(AddReservationForm);
