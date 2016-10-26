@@ -30,9 +30,25 @@ function displayRestaurant(state = restaurantDefaultState, action) {
   }
 };
 
+function addGroup(state = [], action) {
+  switch (action.type) {
+    case 'ADD_GROUP':
+    return [...state,
+      {
+        id: action.id,
+        party_size: action.party_size,
+        time_added: 15
+      }]
+    default:
+      return state
+  }
+}
+
+
 const reducers = combineReducers ({
   addRestaurant,
-  displayRestaurant
+  displayRestaurant,
+  addGroup
 });
 
 export default reducers;
