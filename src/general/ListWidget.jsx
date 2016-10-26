@@ -11,8 +11,12 @@ const ListWidget = React.createClass ({
       <div>
         <h1>List Widget</h1>
         {
-          this.props.data.map((el) =>{
-           return <pre key={el.id}>{JSON.stringify(el)}</pre>;
+          this.props.data.map((el) =>
+          {
+            return <div key={el.id}>
+              <pre >{JSON.stringify(el)}</pre>
+              <this.props.button1 {... el} />
+            </div>;
           })
         }
       </div>

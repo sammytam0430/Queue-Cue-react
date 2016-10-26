@@ -34,7 +34,6 @@ ReactDOM.render((
     <Router history={browserHistory}>
       <Route path="/" component={UserMainLayout}>
         <IndexRoute component={UserContainer} />
-        {/* <Route path="addReservation" component={addReservation} /> */}
       </Route>
 
       <Route path ="restaurants" component={RestaurantMainLayout}>

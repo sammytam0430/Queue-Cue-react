@@ -41,8 +41,8 @@ const UserContainer = React.createClass ({
       <h1>UserContainer</h1>
       <SearchBar />
       <LocationBar />
-      <ListWidget data={restaurants} />
-      <AddReservationBtn />
+      <ListWidget data={restaurants}
+        button1={AddReservationBtn} />
       <AddReservationForm />
     </div>
     );
