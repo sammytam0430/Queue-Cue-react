@@ -4,7 +4,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import ajax from 'superagent';
 import RestaurantClient from '../rest_clients/restaurants.js';
-import RestaurantActions from '../restaurant/actions.js'
+import RestaurantActions from '../actions.js'
 
 
 function handleSubmit(name, food_type, location, email, password, dispatch) {
