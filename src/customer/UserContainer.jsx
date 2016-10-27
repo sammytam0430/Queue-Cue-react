@@ -8,13 +8,13 @@ import { Link, browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { reducers } from '../reducers.js';
 import RestaurantClient from '../rest_clients/restaurants.js';
-import * as RestaurantActions from '../restaurant/actions.js'
+import RestaurantActions from '../restaurant/actions.js';
 
 function mapDispatchToProps(dispatch) {
   return {
     storeData() {
       RestaurantClient.get(function(data){
-        dispatch(RestaurantActions.restaurantList(data));
+        dispatch(RestaurantActions.addRestaurants(data));
       });
     }
   };
@@ -22,7 +22,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    restaurants: state.displayRestaurant.restaurant_list
+    restaurants: state.restaurants
   };
 };
 

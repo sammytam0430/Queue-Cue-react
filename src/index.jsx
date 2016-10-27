@@ -6,7 +6,11 @@ require("../styles/application.scss");
 // React and Redux
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import createLogger from 'redux-logger';
+import { Router, Route, IndexRoute, IndexRedirect, browserHistory } from 'react-router';
+import { Provider } from 'react-redux';
+
 
 // Render the top-level React component
 import reducers from './reducers';
@@ -20,11 +24,9 @@ import CheckIn from './restaurant/CheckIn.jsx';
 import Auth from './restaurant/Auth.jsx';
 import Login from './general/Login.jsx';
 import Signup from './general/Signup.jsx';
-import { Router, Route, IndexRoute, IndexRedirect, browserHistory } from 'react-router';
-import { Provider } from 'react-redux';
 
-
-let store = createStore(reducers);
+const logger = createLogger();
+let store = createStore(reducers, applyMiddleware(logger));
 let unsubscribe = store.subscribe(() => {
   console.log(store.getState());
 });
