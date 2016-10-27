@@ -36,18 +36,18 @@ const UserContainer = React.createClass ({
     const { restaurants } = this.props;
     return (
     <div id="user-container">
-    <table className="list-table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Food</th>
-          <th>Location</th>
-        </tr>
-      </thead>
-      <ListWidget
-        data={restaurants}
-        button1={AddReservationBtn} />
-    </table>
+      <table className="list-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Food</th>
+            <th>Location</th>
+          </tr>
+        </thead>
+        <ListWidget
+          data={restaurants}
+          button1={AddReservationBtn} />
+      </table>
       <AddReservationForm />
     </div>
     );

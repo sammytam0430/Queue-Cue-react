@@ -39,13 +39,13 @@ $spacing-unit: $base-line-height;
   }
 
   100% {
-    left: 2%;
+    left: 1%;
   }
 }
 
 @keyframes spin {
   from {transform:rotate(0deg);}
-  to {transform:rotate(360deg);}
+  to {transform:rotate(-360deg);}
 }
 
 @keyframes top {
@@ -84,8 +84,8 @@ $spacing-unit: $base-line-height;
 
 .queuer {
   position: relative;
-  bottom: .75em;
-  left: 2%;
+  bottom: 1.5em;
+  left: 1%;
 }
 
 .queuer1 {
@@ -101,17 +101,25 @@ $spacing-unit: $base-line-height;
 }
 
 .triangle {
-  width: 2.5%;
-  height: 2.5%;
+  display:inline-flex;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
 
-  animation: spin 8s 1;
+  animation: spin 8s infinite;
+}
+.triangle1 {
+  border-bottom: 20px #DAF7A6 solid;
 }
 
 .triangle2 {
+  border-bottom: 20px lightblue solid;
   animation-delay: .25s;
 }
 
 .triangle3 {
+  border-bottom: 20px lightpink solid;
   animation-delay: .75s;
 }
 
@@ -127,7 +135,7 @@ $spacing-unit: $base-line-height;
 }
 
 .line1 {
-  animation: top 5s 1 forwards;
+  animation: top 4.5s 1 forwards;
 }
 
 .line2 {
@@ -137,19 +145,18 @@ $spacing-unit: $base-line-height;
 }
 
 .search-bar input {
-  background-color: #FFD3B5;
+
   width: 100%;
 }
 
 .location-bar input {
-  background-color: #DCEDC2;
+
   width: 100%;
 }
 
 #reserved-spot {
   opacity: 0.8;
   background-color: #355C7D;
-  height:100px;
 }
 
 #user-container {
@@ -160,3 +167,4 @@ $spacing-unit: $base-line-height;
   width: 100%;
   margin-top: 20%;
 }
+

@@ -9,7 +9,7 @@ const ListWidget = React.createClass ({
       return (
         this.props.data.map((el) => {
           return <tr key={el.id}>
-            <td> {el.name}</td>
+            <td > {el.name}</td>
             <td> {el.food_type}</td>
             <td> {el.location}</td>
             <td><this.props.button1 {... el} /></td>
@@ -20,10 +20,7 @@ const ListWidget = React.createClass ({
       return (
         this.props.data.map((el) => {
           return <tr key={el.id}>
-            <td> {el.id}</td>
-            <td> {el.name}</td>
-            <td> {el.food_type}</td>
-            <td><this.props.button1 {... el} /></td>
+            <td> {JSON.stringify(el)} </td>
           </tr>
         })
       );
