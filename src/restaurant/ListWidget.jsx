@@ -2,18 +2,24 @@ import React from 'react';
 
 const RestaurantQueue = React.createClass({
 
-
-    let resList = this.props.reservations;
-    console.log("reservationList ", resList);
+  checkForProps () {
+    if (this.props.reservations) {
+      return (
+        this.props.reservations.map((res) => {
+          return <tr key={res.id}>
+            <td>{res.party_size}</td>
+          </tr>
+        })
+      )
+    }
+  },
 
 
   render () {
     return (
-      <div>
-        <h1>All Reservations</h1>
-        {
-        }
-      </div>
+      <tbody>
+        {this.checkForProps()}
+      </tbody>
     )
   }
 });

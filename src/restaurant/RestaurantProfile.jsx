@@ -30,8 +30,14 @@ const RestaurantProfile = React.createClass ({
   render() {
     return (
     <div>
-      <h1>RestaurantProfile</h1>
-      <RestaurantQueue reservations={this.props.reservationList} />
+      <table className="list-table">
+      <thead>
+        <tr>
+          <th>Party Size</th>
+        </tr>
+      </thead>
+        <RestaurantQueue reservations={this.props.reservationList} />
+      </table>
     </div>
     );
   }
