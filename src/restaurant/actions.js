@@ -1,4 +1,4 @@
-export function addRestaurant(name, food_type, location) {
+function addRestaurant(name, food_type, location) {
   return {
     type: 'ADD_RESTAURANT',
     name: name,
@@ -7,13 +7,22 @@ export function addRestaurant(name, food_type, location) {
   }
 }
 
-export function restaurantList(data) {
+function restaurantList(data) {
   return {
     type: 'RESTAURANT_LIST',
     restaurant_list: data
   }
 }
 
-// export default {
-//   addRestaurant
-// }
+function reservationList(data) {
+  return {
+    type: 'GET_RESERVATIONS',
+    reservation_list: data
+  }
+}
+
+export default  {
+  addRestaurant,
+  restaurantList,
+  reservationList
+}

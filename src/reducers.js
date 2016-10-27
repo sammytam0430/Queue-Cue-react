@@ -45,11 +45,28 @@ function addGroup(state = [], action) {
   }
 }
 
+const reservationtDefaultState = {
+  restaurant_list: []
+}
+
+function displayReservations(state = reservationtDefaultState, action) {
+  switch (action.type) {
+    case 'GET_RESERVATIONS':
+    return Object.assign({}, state, {
+      reservation_list: action.reservation_list
+    })
+
+    default:
+      return state
+  }
+}
+
 
 const reducers = combineReducers ({
   addRestaurant,
   displayRestaurant,
-  addGroup
+  addGroup,
+  displayReservations
 });
 
 export default reducers;

@@ -1,17 +1,40 @@
 import React, {Component} from 'react';
-import ListWidget from '../general/ListWidget.jsx';
+import { connect } from 'react-redux';
+import RestaurantQueue from './ListWidget.jsx';
+import RestaurantClient from '../rest_clients/restaurants.js';
+import RestaurantActions from './actions.js';
+
+function mapDispatchToProps(dispatch) {
+  return {
+    getReservations(resId) {
+      RestaurantClient.getReservations(resId, function(resList) {
+        dispatch(RestaurantActions.reservationList(resList))
+      })
+    }
+  }
+}
+
+function mapStateToProps(state) {
+  return {
+    reservationList: state.displayReservations.reservation_list
+  }
+}
 
 const RestaurantProfile = React.createClass ({
-  // props to pass down - all the groups that have reservations
-  // buttons
+
+  componentDidMount () {
+    let resId = this.props.params.restaurantId;
+    this.props.getReservations(resId);
+  },
+
   render() {
     return (
     <div>
       <h1>RestaurantProfile</h1>
-      <h1>ListWidget</h1>
+      <RestaurantQueue reservations={this.props.reservationList} />
     </div>
     );
   }
 });
 
-export default RestaurantProfile;
+export default connect(mapStateToProps, mapDispatchToProps)(RestaurantProfile);

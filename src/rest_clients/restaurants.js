@@ -1,8 +1,9 @@
 import ajax from 'superagent';
 
-function create(name, food_type, location, cb) {
+function create(name, food_type, location, email, password, cb) {
+  console.log("EMAIL ", email, password);
   ajax.post('http://localhost:3000/restaurants')
-  .send({name: name, food_type: food_type, location: location})
+  .send({restaurants: {name: name, food_type: food_type, location: location, email: email, password: password}})
   .end(function (err, res){
     if (err || !res.ok) {
       console.log('error!!!!!!', err);
@@ -26,9 +27,23 @@ function get(cb) {
     })
 }
 
+function getReservations(resId, cb) {
+
+  ajax.get('http://localhost:3000/restaurants/' + resId)
+  .end(function(err, res) {
+    if (err || !res.ok) {
+      console.log('error?????', err);
+    } else {
+      console.log("Reservations? ", res.body);
+      cb(res.body)
+    }
+  })
+}
+
 
 
 export default {
   create,
-  get
+  get,
+  getReservations
 }
