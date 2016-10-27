@@ -16,11 +16,39 @@ $spacing-unit: $base-line-height;
 }
 
 @keyframes move {
-  0% { left: 0; }
-  25% { left: 25%; }
-  50% { left: 50%; }
-  75% { left: 75%; }
-  100% { left: 100%; }
+  0% {
+    left: 100%;
+  }
+  10% {
+    left: 90%;
+  }
+  20% {
+    left: 80%;
+  }
+  30% {
+    left: 70%;
+  }
+  40% {
+    left: 60%;
+  }
+  50% {
+    left: 50%;
+  }
+  60% {
+    left: 40%;
+  }
+  70% {
+    left: 30%;
+  }
+  80% {
+    left: 20%;
+  }
+  90% {
+    left: 10%;
+  }
+  100% {
+    left: 2%;
+  }
 }
 
 @keyframes spin {
@@ -64,13 +92,36 @@ $spacing-unit: $base-line-height;
 }
 
 .queuer {
-  animation: move 2s infinite;
+  position: relative;
+  bottom: .75em;
+  left: 1em;
+}
+
+.queuer1 {
+  animation: move 2s linear 1;
+}
+
+.queuer2 {
+  animation: move 2.5s linear 1;
+}
+
+.queuer3 {
+  animation: move 2.75s linear 1;
 }
 
 .triangle {
-  max-height: 4%;
-  max-width: 4%;
-  animation: spin 2s infinite;
+  width: 2.5%;
+  height: 2.5%;
+
+  animation: spin 8s 1;
+}
+
+.triangle2 {
+  animation-delay: .25s;
+}
+
+.triangle3 {
+  animation-delay: .75s;
 }
 
 .search-bar, .location-bar{
@@ -85,13 +136,13 @@ $spacing-unit: $base-line-height;
 }
 
 .line1 {
-  animation: top 3s 1 forwards;
+  animation: top 5s 1 forwards;
 }
 
 .line2 {
   right: 0;
   top: 0;
-  animation: bottom 3s 1 ;
+  animation: bottom 5s 1 forwards ;
 }
 
 .search-bar input {
@@ -104,4 +155,12 @@ $spacing-unit: $base-line-height;
 
 #user-container {
   margin-top: 15%;
+}
+
+.user-headers {
+  width: 100%;
+}
+
+.list-table {
+  width: 100%;
 }

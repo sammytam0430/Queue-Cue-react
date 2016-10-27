@@ -20,8 +20,7 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-function mapStateToProps(state)
-{
+function mapStateToProps(state) {
   return {
     restaurants: state.displayRestaurant.restaurant_list
   };
@@ -37,11 +36,11 @@ const UserContainer = React.createClass ({
     const { restaurants } = this.props;
     return (
     <div id="user-container">
-    <table>
+    <table className="user-headers">
       <thead>
         <tr>
           <th>Name</th>
-          <th>Time</th>
+          <th>Food</th>
           <th>Location</th>
         </tr>
       </thead>

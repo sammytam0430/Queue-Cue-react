@@ -13,6 +13,7 @@ const ListWidget = React.createClass ({
               return <tr key={el.id}>
                 <td> {el.name}</td>
                 <td> {el.food_type}</td>
+                <td> {el.location}</td>
                 <td><this.props.button1 {... el} /></td>
               </tr>
             })
@@ -39,7 +40,7 @@ const ListWidget = React.createClass ({
 
   render() {
     return(
-      <table>
+      <table className="list-table">
         {this.checkForProps()}
       </table>
     )
