@@ -1,13 +1,180 @@
-h1 {
-  color: tomato;
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One');
+
+
+/* vars */
+$nav-width: 100px;
+$base-font-size: 16px;
+$base-line-height: ($base-font-size * 2);
+$spacing-unit: $base-line-height;
+
+
+/* base styles */
+* {
+  font-family: 'Julius Sans One', 'Kano', sans-serif;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
 }
 
 #map {
   height: 100%;
+  padding: 20px;
 }
 
 #container {
-  height: 400px;
+  height: 500px;
   width: 80%;
   margin: 20px auto;
+}
+
+@keyframes move {
+  0% {
+    left: 100%;
+  }
+  10% {
+    left: 90%;
+  }
+  20% {
+    left: 80%;
+  }
+  30% {
+    left: 70%;
+  }
+  50% {
+    left: 50%;
+  }
+  90% {
+    left: 10%;
+  }
+  95% {
+    left: 5%;
+  }
+
+  100% {
+    left: 1%;
+  }
+}
+
+@keyframes spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(-360deg);}
+}
+
+@keyframes top {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes bottom {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+#user-nav {
+  background-color: white;
+  color: white;
+  width: 100%;
+  position: fixed;
+}
+
+#user-nav .title {
+  display: inline-flex;
+  font-size: 50px;
+  padding-top: 30px;
+  padding-left: 10px;
+  background-color: white;
+  color: black;
+}
+
+.queuer {
+  position: relative;
+  bottom: 1.5em;
+  left: 1%;
+}
+
+.queuer1 {
+  animation: move 2.5s linear 1;
+}
+
+.queuer2 {
+  animation: move 3s linear 1;
+}
+
+.queuer3 {
+  animation: move 3.25s linear 1;
+}
+
+.triangle {
+  display:inline-flex;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+
+  animation: spin 8s infinite;
+}
+.triangle1 {
+  border-bottom: 20px #DAF7A6 solid;
+}
+
+.triangle2 {
+  border-bottom: 20px lightblue solid;
+  animation-delay: .25s;
+}
+
+.triangle3 {
+  border-bottom: 20px lightpink solid;
+  animation-delay: .75s;
+}
+
+.search-bar, .location-bar{
+  display: inline-flex;
+  color: black;
+  width: 50%;
+}
+
+.line {
+  height: 2px;
+  background: black;
+}
+
+.line1 {
+  animation: top 4.5s 1 forwards;
+}
+
+.line2 {
+  right: 0;
+  top: 0;
+  animation: bottom 3.5s 1 forwards ;
+}
+
+.search-bar input {
+
+  width: 100%;
+}
+
+.location-bar input {
+
+  width: 100%;
+}
+
+#reserved-spot {
+  opacity: 0.8;
+  background-color: #355C7D;
+}
+
+#user-container {
+  color: black;
+}
+
+.list-table {
+  width: 100%;
+  margin-top: 20%;
 }

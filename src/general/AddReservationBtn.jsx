@@ -1,17 +1,14 @@
 import React from 'react';
+import AddReservationForm from './AddReservationForm.jsx';
 
 function handleSubmit() {
-  browserHistory.push("/restaurants/:restaurantId")
 }
 
 let AddReservationBtn = () => {
   return(
-
-    <div>
-      <button>
-        Add a Reservation
-      </button>
-    </div>
+    <button>
+      I'm a button
+    </button>
   )
 }
 
