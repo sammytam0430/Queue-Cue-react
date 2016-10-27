@@ -7,22 +7,30 @@ function addRestaurant(name, food_type, location) {
   }
 }
 
-function restaurantList(data) {
+function addRestaurants(data) {
   return {
-    type: 'RESTAURANT_LIST',
-    restaurant_list: data
+    type: 'ADD_RESTAURANTS',
+    restaurants: data
   }
 }
 
 function reservationList(data) {
   return {
-    type: 'GET_RESERVATIONS',
+    type: 'ADD_RESERVATIONS',
     reservation_list: data
+  }
+}
+
+function seatedTable() {
+  return {
+    type: 'TABLE_SEATED',
+    completed: true
   }
 }
 
 export default  {
   addRestaurant,
-  restaurantList,
-  reservationList
+  addRestaurants,
+  reservationList,
+  seatedTable
 }

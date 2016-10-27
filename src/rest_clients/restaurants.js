@@ -34,12 +34,14 @@ function getReservations(resId, cb) {
     if (err || !res.ok) {
       console.log('error?????', err);
     } else {
-      console.log("Reservations? ", res.body);
       cb(res.body)
     }
   })
 }
 
+function seatTable(resId, cb) {
+  ajax.put('http://localhost:3000/customers')
+}
 
 
 export default {
