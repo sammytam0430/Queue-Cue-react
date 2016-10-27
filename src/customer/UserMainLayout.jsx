@@ -11,11 +11,11 @@ const UserMainLayout = React.createClass ({
         <nav id="user-nav">
           <div className="title">
             Queue
+          </div>
             <span className="queuer">
             <img className="triangle" src="http://www.edmarrieschar.com/images/triangle_green_giant564x488.png">
             </img>
             </span>
-          </div>
           <div className="line line1" />
             <SearchBar />
             <LocationBar />

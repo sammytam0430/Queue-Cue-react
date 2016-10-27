@@ -55,6 +55,7 @@ $spacing-unit: $base-line-height;
 }
 
 #user-nav .title {
+  display: inline-flex;
   font-size: 50px;
   padding-top: 30px;
   padding-left: 10px;
@@ -67,9 +68,8 @@ $spacing-unit: $base-line-height;
 }
 
 .triangle {
-  height: 4%;
-  width: 4%;
-
+  max-height: 4%;
+  max-width: 4%;
   animation: spin 2s infinite;
 }
 
@@ -85,13 +85,13 @@ $spacing-unit: $base-line-height;
 }
 
 .line1 {
-  animation: top 3s 1 ease-out;
+  animation: top 3s 1 forwards;
 }
 
 .line2 {
-  right:0;
-  top:0;
-  animation: bottom 3s 1 ease-out;
+  right: 0;
+  top: 0;
+  animation: bottom 3s 1 ;
 }
 
 .search-bar input {

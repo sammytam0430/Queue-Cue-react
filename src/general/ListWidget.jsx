@@ -4,39 +4,44 @@ import React, {Component} from 'react';
 
 const ListWidget = React.createClass ({
 
-  checkForProps() {
+  checkForProps () {
     if (this.props.button1) {
       return (
-        <div>
-          <h1>List Widget</h1>
-            {
-              this.props.data.map((el) => {
-                return <div key={el.id}>
-                <pre>{JSON.stringify(el)}</pre>
-                <this.props.button1 {... el} />
-                </div>;
-              })
-            }
-        </div>
+        <tbody>
+          {
+            this.props.data.map((el) => {
+              return <tr key={el.id}>
+                <td> {el.name}</td>
+                <td> {el.food_type}</td>
+                <td><this.props.button1 {... el} /></td>
+              </tr>
+            })
+          }
+        </tbody>
       );
     } else {
-      return <div>
-       {
-        this.props.data.map((el) => {
-          return <div key={el.id}>
-          <pre>{JSON.stringify(el)}</pre>
-          </div>
-        })
-       }
-      </div>
+      return (
+        <tbody>
+          {
+            this.props.data.map((el) => {
+              return <tr key={el.id}>
+                <td> {el.id}</td>
+                <td> {el.name}</td>
+                <td> {el.food_type}</td>
+                <td><this.props.button1 {... el} /></td>
+              </tr>
+            })
+          }
+        </tbody>
+      );
     }
   },
 
   render() {
     return(
-      <div>
+      <table>
         {this.checkForProps()}
-      </div>
+      </table>
     )
   }
 });

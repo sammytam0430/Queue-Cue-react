@@ -37,6 +37,15 @@ const UserContainer = React.createClass ({
     const { restaurants } = this.props;
     return (
     <div id="user-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Time</th>
+          <th>Location</th>
+        </tr>
+      </thead>
+    </table>
       <ListWidget
         data={restaurants}
         button1={AddReservationBtn} />
