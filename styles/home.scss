@@ -1,3 +1,107 @@
-h1 {
-  color: tomato;
+@import url('https://fonts.googleapis.com/css?family=Julius+Sans+One');
+
+
+/* vars */
+$nav-width: 100px;
+$base-font-size: 16px;
+$base-line-height: ($base-font-size * 2);
+$spacing-unit: $base-line-height;
+
+
+/* base styles */
+* {
+  font-family: 'Julius Sans One', 'Kano', sans-serif;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+}
+
+@keyframes move {
+  0% { left: 0; }
+  25% { left: 25%; }
+  50% { left: 50%; }
+  75% { left: 75%; }
+  100% { left: 100%; }
+}
+
+@keyframes spin {
+  from {transform:rotate(0deg);}
+  to {transform:rotate(360deg);}
+}
+
+@keyframes top {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes bottom {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+#user-nav {
+  opacity: 0.8;
+  background-color: white;
+  color: white;
+  width: 100%;
+  position: fixed;
+}
+
+#user-nav .title {
+  font-size: 50px;
+  padding-top: 30px;
+  padding-left: 10px;
+  background-color: white;
+  color: black;
+}
+
+.queuer {
+  animation: move 2s infinite;
+}
+
+.triangle {
+  height: 4%;
+  width: 4%;
+
+  animation: spin 2s infinite;
+}
+
+.search-bar, .location-bar{
+  display: inline-flex;
+  color: black;
+  width: 50%;
+}
+
+.line {
+  height: 2px;
+  background: black;
+}
+
+.line1 {
+  animation: top 3s 1 ease-out;
+}
+
+.line2 {
+  right:0;
+  top:0;
+  animation: bottom 3s 1 ease-out;
+}
+
+.search-bar input {
+  width: 100%;
+}
+
+.location-bar input {
+  width: 100%;
+}
+
+#user-container {
+  margin-top: 15%;
 }

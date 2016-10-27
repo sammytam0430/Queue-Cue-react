@@ -1,13 +1,25 @@
 import React, {Component} from 'react';
 import { Link } from 'react-router';
+import SearchBar from '../general/SearchBar.jsx';
+import LocationBar from '../general/LocationBar.jsx';
 
 const UserMainLayout = React.createClass ({
 
   render() {
     return (
       <div>
-        <nav>
-          <h1>UserMainLayout</h1>
+        <nav id="user-nav">
+          <div className="title">
+            Queue
+            <span className="queuer">
+            <img className="triangle" src="http://www.edmarrieschar.com/images/triangle_green_giant564x488.png">
+            </img>
+            </span>
+          </div>
+          <div className="line line1" />
+            <SearchBar />
+            <LocationBar />
+          <div className="line line2" />
         </nav>
 
         <div className="container">

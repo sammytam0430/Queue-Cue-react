@@ -5,7 +5,9 @@ const LocationBar = React.createClass ({
 
   render() {
     return (
-      <h1>LocationBar</h1>
+      <div className='location-bar'>
+        <input type="text" placeholder="Location" />
+      </div>
     );
   }
 });

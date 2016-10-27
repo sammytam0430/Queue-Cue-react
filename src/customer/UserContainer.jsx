@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import SearchBar from '../general/SearchBar.jsx';
-import LocationBar from '../general/LocationBar.jsx';
+
 import ListWidget from '../general/ListWidget.jsx';
 import ajax from 'superagent';
 import AddReservationBtn from '../general/AddReservationBtn.jsx';
@@ -37,11 +36,9 @@ const UserContainer = React.createClass ({
   render() {
     const { restaurants } = this.props;
     return (
-    <div>
-      <h1>UserContainer</h1>
-      <SearchBar />
-      <LocationBar />
-      <ListWidget data={restaurants}
+    <div id="user-container">
+      <ListWidget
+        data={restaurants}
         button1={AddReservationBtn} />
       <AddReservationForm />
     </div>
