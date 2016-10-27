@@ -28,24 +28,16 @@ $spacing-unit: $base-line-height;
   30% {
     left: 70%;
   }
-  40% {
-    left: 60%;
-  }
   50% {
     left: 50%;
-  }
-  60% {
-    left: 40%;
-  }
-  70% {
-    left: 30%;
-  }
-  80% {
-    left: 20%;
   }
   90% {
     left: 10%;
   }
+  95% {
+    left: 5%;
+  }
+
   100% {
     left: 2%;
   }
@@ -75,7 +67,6 @@ $spacing-unit: $base-line-height;
 }
 
 #user-nav {
-  opacity: 0.8;
   background-color: white;
   color: white;
   width: 100%;
@@ -94,7 +85,7 @@ $spacing-unit: $base-line-height;
 .queuer {
   position: relative;
   bottom: .75em;
-  left: 1em;
+  left: 2%;
 }
 
 .queuer1 {
@@ -146,21 +137,26 @@ $spacing-unit: $base-line-height;
 }
 
 .search-bar input {
+  background-color: #FFD3B5;
   width: 100%;
 }
 
 .location-bar input {
+  background-color: #DCEDC2;
   width: 100%;
+}
+
+#reserved-spot {
+  opacity: 0.8;
+  background-color: #355C7D;
+  height:100px;
 }
 
 #user-container {
-  margin-top: 15%;
-}
-
-.user-headers {
-  width: 100%;
+  color: black;
 }
 
 .list-table {
   width: 100%;
+  margin-top: 20%;
 }

@@ -32,7 +32,7 @@ const ListWidget = React.createClass ({
 
   render() {
     return(
-      <tbody className="list-table">
+      <tbody>
         {this.checkForProps()}
       </tbody>
     )

@@ -29,8 +29,10 @@ const UserMainLayout = React.createClass ({
             <SearchBar />
             <LocationBar />
           <div className="line line2" />
+          <div id="reserved-spot">
+            RESERVED
+          </div>
         </nav>
-
         <div className="container">
           {this.props.children}
         </div>

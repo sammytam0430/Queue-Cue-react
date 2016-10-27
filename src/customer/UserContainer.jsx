@@ -36,7 +36,7 @@ const UserContainer = React.createClass ({
     const { restaurants } = this.props;
     return (
     <div id="user-container">
-    <table className="user-headers">
+    <table className="list-table">
       <thead>
         <tr>
           <th>Name</th>
