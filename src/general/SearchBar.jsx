@@ -5,7 +5,9 @@ const SearchBar = React.createClass ({
 
   render() {
     return (
-      <h1>SearchBar</h1>
+      <div className='search-bar'>
+        <input type="text" placeholder="Search Here" />
+      </div>
     );
   }
 });
