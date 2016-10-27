@@ -33,7 +33,10 @@
 
           service = new google.maps.places.PlacesService(map);
           service.nearbySearch({
-            location: pos,
+            location: {
+              lat: 49.2827,
+              lng: -123.1207
+            },
             radius: 50,
             type: ['food']
           }, callback);
