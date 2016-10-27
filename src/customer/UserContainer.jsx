@@ -44,10 +44,10 @@ const UserContainer = React.createClass ({
           <th>Location</th>
         </tr>
       </thead>
-    </table>
       <ListWidget
         data={restaurants}
         button1={AddReservationBtn} />
+    </table>
       <AddReservationForm />
     </div>
     );

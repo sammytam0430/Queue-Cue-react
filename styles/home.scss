@@ -98,15 +98,15 @@ $spacing-unit: $base-line-height;
 }
 
 .queuer1 {
-  animation: move 2s linear 1;
-}
-
-.queuer2 {
   animation: move 2.5s linear 1;
 }
 
+.queuer2 {
+  animation: move 3s linear 1;
+}
+
 .queuer3 {
-  animation: move 2.75s linear 1;
+  animation: move 3.25s linear 1;
 }
 
 .triangle {
@@ -142,7 +142,7 @@ $spacing-unit: $base-line-height;
 .line2 {
   right: 0;
   top: 0;
-  animation: bottom 5s 1 forwards ;
+  animation: bottom 3.5s 1 forwards ;
 }
 
 .search-bar input {
