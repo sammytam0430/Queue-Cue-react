@@ -1,17 +1,62 @@
 import React, {Component} from 'react';
-import ListWidget from '../general/ListWidget.jsx';
+import { connect } from 'react-redux';
+import RestaurantQueue from './ListWidget.jsx';
+import CompletedBtn from './CompletedReservationBtn.jsx';
+import RestaurantClient from '../rest_clients/restaurants.js';
+import RestaurantActions from './actions.js';
+
+function mapDispatchToProps(dispatch) {
+  return {
+    getReservations(resId) {
+      RestaurantClient.getReservations(resId, function(resList) {
+        dispatch(RestaurantActions.reservationList(resList))
+      })
+    },
+
+    // function seatTable(resId) {
+    //   RestaurantClient.seatTable(function(resId) {
+    //
+    //     // dispatch(RestaurantActions.completed)
+    //   })
+    // }
+  }
+}
+
+function mapStateToProps(state) {
+  return {
+    reservationList: state.reservation_list
+  }
+}
 
 const RestaurantProfile = React.createClass ({
-  // props to pass down - all the groups that have reservations
-  // buttons
+
+  componentDidMount () {
+    let resId = this.props.params.restaurantId;
+    this.props.getReservations(resId);
+  },
+
   render() {
     return (
     <div>
-      <h1>RestaurantProfile</h1>
-      <h1>ListWidget</h1>
+      <table className="list-table">
+      <thead>
+        <tr>
+          <th>Party Size</th>
+          <th>Time Added</th>
+          <th>Completed</th>
+        </tr>
+      </thead>
+        <RestaurantQueue reservations={this.props.reservationList}
+        button={<CompletedBtn/>} />
+      <tfoot>
+        <tr>
+          <td colSpan="3">Total Time</td>
+        </tr>
+      </tfoot>
+      </table>
     </div>
     );
   }
 });
 
-export default RestaurantProfile;
+export default connect(mapStateToProps, mapDispatchToProps)(RestaurantProfile);

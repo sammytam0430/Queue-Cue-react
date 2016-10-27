@@ -3,8 +3,31 @@ import { connect } from 'react-redux';
 import CustomerClient from '../customer_clients/customers.js';
 import ReservationActions from '../reservation/actions.js';
 
+function timeAdded(party_size) {
+  switch (party_size) {
+    case '6':
+      return 60
+      break
+    case '5':
+      return 45
+      break
+    case '4':
+      return 30
+      break
+    case '3':
+      return 20
+      break
+    case '2':
+      return 15
+      break
+    default:
+      return 15
+  }
+}
+
 function handleSubmit(name, phone, email, party_size, dispatch) {
-  CustomerClient.newRes(name, phone, email, party_size,
+  let time_added = timeAdded(party_size);
+  CustomerClient.newRes(name, phone, email, party_size, time_added,
   function(party){
     dispatch(ReservationActions.addGroup(party));
   })
