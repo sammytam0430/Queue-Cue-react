@@ -21,11 +21,10 @@ function reservationList(data) {
   }
 }
 
-function seatedTable(resId) {
+function deleteRes(resId) {
   return {
-    type: 'TABLE_SEATED',
-    reservation_id: resId,
-    completed: true
+    type: 'DELETE_RES',
+    reservation_id: resId
   }
 }
 
@@ -43,7 +42,6 @@ export default  {
   addRestaurant,
   addRestaurants,
   reservationList,
-  seatedTable,
-  addReservation,
-  seatedTable
+  deleteRes,
+  addReservation
 }

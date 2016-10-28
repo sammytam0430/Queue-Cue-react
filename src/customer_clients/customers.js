@@ -1,4 +1,5 @@
 import ajax from 'superagent';
+import RestaurantActions from '../actions.js';
 
 function newRes(restId, name, phone, email, party_size, time_added, cb) {
 
@@ -14,19 +15,19 @@ function newRes(restId, name, phone, email, party_size, time_added, cb) {
   })
 }
 
-function seatTable(resId, cb) {
-  ajax.put('http://localhost:3000/reservations/' + resId)
+function deleteRes(resId, dispatch) {
+  ajax.delete('http://localhost:3000/reservations/' + resId)
   .end(function (err, res){
     if (err || !res.ok) {
       console.log('error!!!!!!', err);
-    } else {
-      cb(res.body)
+      return
     }
+    dispatch(RestaurantActions.deleteRes(resId))
   })
 }
 
 
 export default {
   newRes,
-  seatTable
+  deleteRes
 }
