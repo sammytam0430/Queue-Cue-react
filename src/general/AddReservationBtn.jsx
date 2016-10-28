@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Button, Modal } from 'react-bootstrap';
 import CustomerClient from '../customer_clients/customers.js';
-import ReservationActions from '../reservation/actions.js';
+import ReservationActions from '../actions.js';
 
 function timeAdded(party_size) {
   switch (party_size) {
