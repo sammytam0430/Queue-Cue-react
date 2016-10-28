@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import RestaurantQueue from './ListWidget.jsx';
+// import RestaurantQueue from './ListWidget.jsx';
+import ListWidget from '../general/ListWidget.jsx';
 import CompletedBtn from './CompletedReservationBtn.jsx';
 import RestaurantClient from '../rest_clients/restaurants.js';
 import RestaurantActions from '../actions.js';
@@ -46,7 +47,7 @@ const RestaurantProfile = React.createClass ({
           <th>Completed</th>
         </tr>
       </thead>
-        <RestaurantQueue reservations={this.props.reservationList}
+        <ListWidget reservations={this.props.reservationList}
        />
       <tfoot>
         <tr>

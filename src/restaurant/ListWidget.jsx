@@ -20,23 +20,11 @@ function mapDispatchToProps(dispatch) {
 
 const RestaurantQueue = React.createClass({
 
-  checkForProps () {
-
-  },
-
-  componentDidMount () {
-    // this.state.subscribe(() => {
-    //   console.log(state.getState());
-    // });
-  },
-
-
-  render () {
+    render () {
     return (
       <tbody>
         {this.props.reservations &&
           this.props.reservations.map((res) => {
-            // console.log("Reservations ", res)
             return (
               <tr key={res.id}>
                 <td>{res.party_size}</td>
