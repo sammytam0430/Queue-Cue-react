@@ -39,9 +39,6 @@ function getReservations(resId, cb) {
   })
 }
 
-function seatTable(resId, cb) {
-  ajax.put('http://localhost:3000/customers')
-}
 
 
 export default {

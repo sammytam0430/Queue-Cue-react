@@ -32,7 +32,7 @@ function mapDispatchToProps(dispatch) {
       let time_added = timeAdded(party_size);
       CustomerClient.newRes(restId, name, phone, email, party_size, time_added,
       function(party){
-        dispatch(ReservationActions.addGroup(party));
+        dispatch(ReservationActions.addReservation(party));
       })
     }
   }

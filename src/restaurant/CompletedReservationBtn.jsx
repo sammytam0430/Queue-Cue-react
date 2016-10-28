@@ -1,12 +1,21 @@
 import React from 'react';
+import { Button, Modal } from 'react-bootstrap';
 
 const CompletedBtn = React.createClass({
+  componentDidMount() {
+    console.log(this.props.handleClick);
+  },
 
   render () {
+
     return (
       <div>
-        <button>
-          Table is Seated
+        <button
+          id={this.props.resId}
+          className="btn btn-success btn-sm"
+          // onClick={this.props.handleClick(this.props.resId)}
+        >
+          Seat Table
         </button>
       </div>
     )

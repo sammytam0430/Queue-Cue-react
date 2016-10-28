@@ -14,7 +14,19 @@ function newRes(restId, name, phone, email, party_size, time_added, cb) {
   })
 }
 
+function seatTable(resId, cb) {
+  ajax.put('http://localhost:3000/reservations/' + resId)
+  .end(function (err, res){
+    if (err || !res.ok) {
+      console.log('error!!!!!!', err);
+    } else {
+      cb(res.body)
+    }
+  })
+}
+
 
 export default {
-  newRes
+  newRes,
+  seatTable
 }
