@@ -8,7 +8,7 @@ import { Link, browserHistory } from 'react-router';
 import { connect } from 'react-redux';
 import { reducers } from '../reducers.js';
 import RestaurantClient from '../rest_clients/restaurants.js';
-import RestaurantActions from '../restaurant/actions.js';
+import RestaurantActions from '../actions.js';
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -49,6 +49,7 @@ const UserContainer = React.createClass ({
           button1={AddReservationBtn} />
       </table>
       <AddReservationForm />
+      <div id='map'></div>
     </div>
     );
   }

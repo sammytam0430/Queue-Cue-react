@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import RestaurantQueue from './ListWidget.jsx';
 import CompletedBtn from './CompletedReservationBtn.jsx';
 import RestaurantClient from '../rest_clients/restaurants.js';
-import RestaurantActions from './actions.js';
+import RestaurantActions from '../actions.js';
 
 function mapDispatchToProps(dispatch) {
   return {
