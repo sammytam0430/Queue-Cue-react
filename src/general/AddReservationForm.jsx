@@ -38,10 +38,8 @@ let AddReservationForm = ({ dispatch }) => {
   let phone
   let email
   let party_size
-
   return (
     <div>
-      <h1>Make a Reservation</h1>
       <form action="/" onSubmit={e => {
         e.preventDefault()
         handleSubmit(name.value, phone.value, email.value, party_size.value, dispatch)
