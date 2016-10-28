@@ -21,26 +21,29 @@ function reservationList(data) {
   }
 }
 
-function seatedTable() {
+function seatedTable(resId) {
   return {
     type: 'TABLE_SEATED',
+    reservation_id: resId,
     completed: true
   }
 }
 
-function addGroup(party) {
+function addReservation(party) {
   return {
-    type: 'ADD_GROUP',
+    type: 'ADD_RESERVATION',
     id: party.id,
     party_size: party.party_size,
     time_added: party.time_added
   }
 }
 
+
 export default  {
   addRestaurant,
   addRestaurants,
   reservationList,
   seatedTable,
-  addGroup
+  addReservation,
+  seatedTable
 }

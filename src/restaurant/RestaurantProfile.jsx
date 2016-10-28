@@ -47,10 +47,11 @@ const RestaurantProfile = React.createClass ({
         </tr>
       </thead>
         <RestaurantQueue reservations={this.props.reservationList}
-        button={<CompletedBtn/>} />
+       />
       <tfoot>
         <tr>
-          <td colSpan="3">Total Time</td>
+          <td>Total Time</td>
+          <td>Minutes</td>
         </tr>
       </tfoot>
       </table>
