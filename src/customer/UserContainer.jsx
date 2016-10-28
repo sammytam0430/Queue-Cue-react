@@ -49,6 +49,7 @@ const UserContainer = React.createClass ({
           button1={AddReservationBtn} />
       </table>
       <AddReservationForm />
+      <div id='map'></div>
     </div>
     );
   }
