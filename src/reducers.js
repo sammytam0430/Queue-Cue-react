@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux'
+import { findIndex } from 'lodash'
 
 function restaurants(state = [], action) {
   switch (action.type) {
@@ -30,12 +31,13 @@ function reservations(state = [], action) {
         }]
     case 'ADD_RESERVATIONS':
       return state.concat(action.reservation_list);
-    case 'TABLE_SEATED':
-      return [...state,
-        {
-          resId: action.reservation_id,
-          completed: action.completed
-        }
+    case 'DELETE_RES':
+      var index = findIndex(state, function(res) {
+        return res.id == action.reservation_id
+      })
+      return [
+        ...state.slice(0, index),
+        ...state.slice(index + 1)
       ]
     default:
       return state

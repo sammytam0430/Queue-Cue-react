@@ -48,6 +48,7 @@
     "bootstrap": "4.0.0-alpha.5",
     "dotenv": "2.0.0",
     "knex": "0.12.6",
+    "lodash": "^4.16.4",
     "pg": "6.1.0",
     "react": "15.2.1",
     "react-bootstrap": "^0.30.5",
