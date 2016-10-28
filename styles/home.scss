@@ -15,6 +15,16 @@ $spacing-unit: $base-line-height;
   line-height: $base-line-height;
 }
 
+#map {
+  height: 100%;
+}
+
+#container {
+  height: 500px;
+  width: 80%;
+  margin: 20px auto;
+}
+
 @keyframes move {
   0% {
     left: 100%;
@@ -167,4 +177,3 @@ $spacing-unit: $base-line-height;
   width: 100%;
   margin-top: 20%;
 }
-
