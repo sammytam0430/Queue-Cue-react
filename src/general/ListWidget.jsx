@@ -2,6 +2,10 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import TimeWidget from '../general/TimeWidget.jsx';
+import RestaurantActions from '../actions.js';
+import CustomerClient from '../customer_clients/customers.js';
+import CompletedBtn from '../restaurant/CompletedReservationBtn.jsx';
+
 
 
 
@@ -10,6 +14,7 @@ const ListWidget = React.createClass ({
   render() {
 
     return(
+
       <tr>
         <td> {this.props.restaurant.name}</td>
         <td> {this.props.restaurant.food_type}</td>
@@ -18,6 +23,7 @@ const ListWidget = React.createClass ({
         reservations={this.props.reservations}/>} </td>
         <td> {<this.props.button1 {... this.props.restaurant} />} </td>
       </tr>
+
     )
   }
 });

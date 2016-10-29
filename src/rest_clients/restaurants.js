@@ -24,7 +24,6 @@ function get(cb) {
 }
 
 function getReservations(resId, cb) {
-
   ajax.get('http://localhost:3000/restaurants/' + resId)
   .end(function(err, res) {
     if (err || !res.ok) {
