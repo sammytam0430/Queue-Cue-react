@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import { Link } from 'react-router';
 import SearchBar from '../general/SearchBar.jsx';
 import LocationBar from '../general/LocationBar.jsx';
+import CurrentReservations from '../general/CurrentReservations.jsx';
 
 const UserMainLayout = React.createClass ({
 
@@ -29,7 +30,7 @@ const UserMainLayout = React.createClass ({
             <LocationBar />
           <div className="line line2" />
           <div id="reserved-spot">
-            APPEND RESERVED
+            <CurrentReservations />
           </div>
         </nav>
         <div className="container">

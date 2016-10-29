@@ -32,10 +32,13 @@ function addReservation(party) {
   return {
     type: 'ADD_RESERVATION',
     id: party.id,
+    restaurant_id: party.restaurant_id,
+    restaurant_name: party.restaurant_name,
     party_size: party.party_size,
     time_added: party.time_added
   }
 }
+
 
 
 export default  {

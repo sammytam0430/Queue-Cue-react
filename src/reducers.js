@@ -26,6 +26,8 @@ function reservations(state = [], action) {
         {
           id: action.id,
           party_size: action.party_size,
+          restaurant_id: action.restaurant_id,
+          restaurant_name: action.restaurant_name,
           time_added: action.time_added,
           completed: false
         }]

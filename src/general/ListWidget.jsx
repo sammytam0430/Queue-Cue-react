@@ -4,6 +4,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import RestaurantActions from '../actions.js';
 import CustomerClient from '../customer_clients/customers.js';
+import RestaurantClient from '../rest_clients/restaurants.js';
 import CompletedBtn from '../restaurant/CompletedReservationBtn.jsx';
 
 function mapStateToProps(state) {
@@ -11,7 +12,6 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  console.log("mapDispatchToProps(dispatch)");
   return {
     seatedTable(resId) {
       CustomerClient.deleteRes(resId, dispatch);
@@ -19,12 +19,16 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
+function getReservations(resId) {
+  let resoList;
+  RestaurantClient.getReservations(resId, function(resos) {
+    return resos
+  })
+}
 
 
 const ListWidget = React.createClass ({
-  componentDidMount() {
-    console.log(this.props)
-  },
+
 
   render() {
     return(

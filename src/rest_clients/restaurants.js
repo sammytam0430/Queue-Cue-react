@@ -21,7 +21,6 @@ function get(cb) {
       if (err || !res.ok) {
         console.log('error?????', err);
       } else {
-        console.log(res.body);
         cb(res.body)
       }
     })
