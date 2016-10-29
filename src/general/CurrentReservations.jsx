@@ -13,7 +13,13 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    handleSubmit: function(){}
+    handleSubmit(email) {
+      CustomerClient.getCustomers(function(allCustomers) {
+        findIndex(allCustomers, function(customer) {
+          return customer.email.toLowerCase() == email.toLowerCase()
+        })
+      })
+    }
   }
 }
 
