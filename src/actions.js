@@ -37,6 +37,12 @@ function addReservation(party) {
   }
 }
 
+function addLocation(location) {
+  return {
+    type: 'LOCATION',
+    location: location
+  }
+}
 
 export default  {
   addRestaurant,
