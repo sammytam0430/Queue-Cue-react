@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import TimeWidget from '../general/TimeWidget.jsx';
 import RestaurantActions from '../actions.js';
 import CustomerClient from '../customer_clients/customers.js';
-import CompletedBtn from '../restaurant/CompletedReservationBtn.jsx';
 
 
 
