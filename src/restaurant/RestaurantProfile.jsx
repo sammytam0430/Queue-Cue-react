@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-// import RestaurantQueue from './ListWidget.jsx';
-import ListWidget from '../general/ListWidget.jsx';
+import ListWidget from './ListWidget.jsx';
 import CompletedBtn from './CompletedReservationBtn.jsx';
 import RestaurantClient from '../rest_clients/restaurants.js';
 import RestaurantActions from '../actions.js';
+import TimeWidget from '../general/TimeWidget.jsx';
 
 function mapDispatchToProps(dispatch) {
   return {
@@ -12,7 +12,7 @@ function mapDispatchToProps(dispatch) {
       RestaurantClient.getReservations(resId, function(resList) {
         dispatch(RestaurantActions.reservationList(resList))
       })
-    },
+    }
 
     // function seatTable(resId) {
     //   RestaurantClient.seatTable(function(resId) {
@@ -37,6 +37,7 @@ const RestaurantProfile = React.createClass ({
   },
 
   render() {
+    console.log("RestProf props resList", this.props.reservationList);
     return (
     <div>
       <table className="list-table">
@@ -56,6 +57,7 @@ const RestaurantProfile = React.createClass ({
         </tr>
       </tfoot>
       </table>
+       />
     </div>
     );
   }

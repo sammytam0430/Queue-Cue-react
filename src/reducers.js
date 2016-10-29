@@ -29,7 +29,8 @@ function reservations(state = [], action) {
           completed: false
         }]
     case 'ADD_RESERVATIONS':
-      return state.concat(action.reservation_list);
+      return action.reservation_list;
+
     case 'TABLE_SEATED':
       return [...state,
         {

@@ -17,9 +17,7 @@ function mapDispatchToProps(dispatch) {
     }
   }
 }
-
-const RestaurantQueue = React.createClass({
-
+const ListWidget = React.createClass({
     render () {
     return (
       <tbody>
@@ -43,5 +41,4 @@ const RestaurantQueue = React.createClass({
     )
   }
 });
-
-export default connect(mapStateToProps, mapDispatchToProps)(RestaurantQueue);
+export default connect(mapStateToProps, mapDispatchToProps)(ListWidget);

@@ -3,7 +3,6 @@ import { Button, Modal } from 'react-bootstrap';
 
 const CompletedBtn = React.createClass({
   componentDidMount() {
-    console.log(this.props.handleClick);
   },
 
   render () {

@@ -8,6 +8,9 @@ window.onload = function() {
 
   function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
+      mapTypeControl: false,
+      zoomControl: false,
+      streetViewControl: false,
       center: {lat: 49.2827, lng: -123.1207},
       zoom: 17,
       styles: [
@@ -264,7 +267,7 @@ window.onload = function() {
         type: ['restaurant']
       }, callback);
       infoWindow.setPosition(pos);
-      infoWindow.setContent('Your location');
+      infoWindow.setContent('Your Location');
       createMarker(pos);
       map.setCenter(pos);
     })
@@ -316,7 +319,8 @@ window.onload = function() {
         map: map,
         position: place.geometry.location,
         title: place.name,
-        icon: 'http://maps.google.com/mapfiles/ms/micons/red-dot.png'
+        icon: 'http://maps.google.com/mapfiles/ms/micons/red-dot.png',
+        draggable: true
       });
     } else {
       marker = new google.maps.Marker({
@@ -325,6 +329,14 @@ window.onload = function() {
         title: place.name,
         icon: 'http://maps.google.com/mapfiles/ms/micons/blue-dot.png'
       });
+    }
+
+    function toggleBounce() {
+      if (marker.getAnimation() !== null) {
+        marker.setAnimation(null);
+      } else {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+      }
     }
 
     google.maps.event.addListener(marker, 'click', function() {
