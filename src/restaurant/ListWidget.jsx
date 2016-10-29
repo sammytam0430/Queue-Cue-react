@@ -11,12 +11,11 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     seatedTable(resId) {
-      CustomerClient.seatTable(resId, function(reservation){
-        dispatch(RestaurantActions.addReservation(reservation))
-      })
+      CustomerClient.deleteRes(resId, dispatch);
+      }
     }
   }
-}
+
 const ListWidget = React.createClass({
     render () {
     return (
@@ -28,10 +27,14 @@ const ListWidget = React.createClass({
                 <td>{res.party_size}</td>
                 <td>{res.time_added}</td>
                 <td>{JSON.stringify(res.completed)}</td>
-                <td>{<CompletedBtn
-                  resId={res.id}
-                  handleClick={this.props.seatedTable}
-                  />}
+                <td>
+                  <button
+                    id={res.id}
+                    className="btn btn-success btn-sm"
+                    onClick={() => this.props.seatedTable(res.id)}
+                    >
+                    Delete
+                  </button>
                 </td>
               </tr>
             )
