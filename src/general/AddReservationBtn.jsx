@@ -30,6 +30,7 @@ function mapDispatchToProps(dispatch) {
   return {
     handleSubmit(restId, name, phone, email, party_size) {
       let time_added = timeAdded(party_size);
+
       CustomerClient.newRes(restId, name, phone, email, party_size, time_added,
       function(party){
         dispatch(ReservationActions.addReservation(party));

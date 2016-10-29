@@ -1,69 +1,30 @@
 //takes object and iterates through to display it
 import React, {Component} from 'react';
-
 import { connect } from 'react-redux';
+import TimeWidget from '../general/TimeWidget.jsx';
 import RestaurantActions from '../actions.js';
 import CustomerClient from '../customer_clients/customers.js';
-import CompletedBtn from '../restaurant/CompletedReservationBtn.jsx';
 
-function mapStateToProps(state) {
-  return state
-}
-
-function mapDispatchToProps(dispatch) {
-  console.log("mapDispatchToProps(dispatch)");
-  return {
-    seatedTable(resId) {
-      CustomerClient.deleteRes(resId, dispatch);
-    }
-  }
-}
 
 
 
 const ListWidget = React.createClass ({
-  componentDidMount() {
-    console.log(this.props)
-  },
 
   render() {
-    return(
-      <tbody>
-        {this.props.button1 &&
-        this.props.data.map((el) => {
-          return (
-            <tr key={el.id}>
-              <td > {el.name}</td>
-              <td> {el.food_type}</td>
-              <td> {el.location}</td>
-              <td><this.props.button1 {... el} /></td>
-            </tr>
-          )
-        }) ||
 
-        this.props.reservations &&
-          this.props.reservations.map((res) => {
-            return (
-              <tr key={res.id}>
-                <td>{res.party_size}</td>
-                <td>{res.time_added}</td>
-                <td>{JSON.stringify(res.completed)}</td>
-                <td>
-                  <button
-                    id={res.id}
-                    className="btn btn-success btn-sm"
-                    onClick={() => {this.props.seatedTable(res.id)}}
-                  >
-                    Seated
-                  </button>
-                </td>
-              </tr>
-            )
-          })
-      }
-      </tbody>
+    return(
+
+      <tr>
+        <td> {this.props.restaurant.name}</td>
+        <td> {this.props.restaurant.food_type}</td>
+        <td> {this.props.restaurant.location}</td>
+        <td> {<TimeWidget resId={this.props.restaurant.id}
+        reservations={this.props.reservations}/>} </td>
+        <td> {<this.props.button1 {... this.props.restaurant} />} </td>
+      </tr>
+
     )
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListWidget);
+export default (ListWidget);
