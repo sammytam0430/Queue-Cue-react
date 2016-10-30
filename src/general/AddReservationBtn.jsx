@@ -26,6 +26,12 @@ function timeAdded(party_size) {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    customers: state.customers
+  }
+}
+
 function mapDispatchToProps(dispatch) {
   return {
     handleSubmit(restId, name, phone, email, party_size) {
@@ -34,6 +40,7 @@ function mapDispatchToProps(dispatch) {
       CustomerClient.newRes(restId, name, phone, email, party_size, time_added,
       function(party){
         dispatch(ReservationActions.addReservation(party));
+        alert("Thanks for queuing up!");
       })
     }
   }
@@ -61,14 +68,16 @@ const AddReservationBtn = React.createClass({
 
     return (
       <div>
-        <Button
-        onClick={this.open}
-        id={this.props.id}
-        bsStyle="success"
-        bsSize="small"
-        >
-        Add
-        </Button>
+        {this.props.customers.length === 0 &&
+          <Button
+          onClick={this.open}
+          id={this.props.id}
+          bsStyle="success"
+          bsSize="small"
+          >
+          Add
+          </Button>
+        }
 
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>
@@ -112,4 +121,4 @@ const AddReservationBtn = React.createClass({
 
 
 
-export default connect(null, mapDispatchToProps)(AddReservationBtn);
+export default connect(mapStateToProps, mapDispatchToProps)(AddReservationBtn);
