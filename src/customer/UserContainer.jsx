@@ -22,24 +22,24 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    restaurants: state.restaurants,
-    reservations: state.reservation_list
+    restaurants: state.restaurants
   };
 };
 
 const UserContainer = React.createClass ({
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.storeData();
   },
 
+  // <div id='map'></div>
   render() {
-    console.log(this.props.reservations);
     const { restaurants } = this.props;
+    console.log('these are the restaurants', restaurants);
+
     return (
     <div id="user-container">
-      <div id='map-cont'>
-        <div id='map'></div>
+    <div id='map-cont'>
       </div>
       <table className="list-table">
         <thead>
@@ -54,9 +54,7 @@ const UserContainer = React.createClass ({
         <tbody>
             {this.props.restaurants.map((restaurant) => {
               return (
-                <ListWidget
-                key={restaurant.id}
-                reservations={this.props.reservations}
+                <ListWidget key={restaurant.id}
                 restaurant={restaurant}
                 button1={AddReservationBtn}/>)
             })}

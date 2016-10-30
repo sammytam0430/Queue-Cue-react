@@ -4,10 +4,10 @@ import { connect } from 'react-redux';
 import ajax from 'superagent';
 import RestaurantClient from '../rest_clients/restaurants';
 import RestaurantActions from '../actions.js';
-import FormWidget from './FormWidget.jsx'
-
+import FormWidget from './FormWidget.jsx';
 
 const TimeWidget = React.createClass ({
+
 
   render() {
     return (
@@ -16,9 +16,7 @@ const TimeWidget = React.createClass ({
           HERE
         </div>
         <div id='form-widget'>
-          <FormWidget
-            resId={this.props.resId}
-            reservations={this.props.reservations}/>
+          <FormWidget reservations={this.props.reservations}/>
         </div>
       </div>
     );
