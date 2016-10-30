@@ -19,7 +19,7 @@ const ListWidget = React.createClass ({
         <td> {this.props.restaurant.food_type}</td>
         <td> {this.props.restaurant.location}</td>
         <td> {<TimeWidget resId={this.props.restaurant.id}
-        reservations={this.props.reservations}/>} </td>
+        reservations={this.props.restaurant.reservations}/>} </td>
         <td> {<this.props.button1 {... this.props.restaurant} />} </td>
       </tr>
 
