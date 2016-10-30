@@ -16,6 +16,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     handleSubmit(email) {
+      normalizedEmail = email.toLowerCase();
       CustomerClient.getCustomers(function(CustomersAndResos) {
         let customers = CustomersAndResos.customers
         let reservations = CustomersAndResos.reservations

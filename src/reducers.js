@@ -30,7 +30,8 @@ function reservations(state = [], action) {
           restaurant_name: action.restaurant_name,
           time_added: action.time_added,
           reservations: [...action.reservations],
-          completed: false
+          // completed: false
+          customer_name: action.customer_name
         }]
     case 'ADD_RESERVATIONS':
       return state.concat(action.reservation_list);
@@ -52,7 +53,7 @@ function customers(state = [], action) {
     case 'SHOW_RESERVATION':
       return [...state,
         {
-          reservation_id: action.reservation_id,
+          reservation_id: action.id,
           restaurant_name: action.restaurant_name,
           customer_name: action.customer_name
         }
