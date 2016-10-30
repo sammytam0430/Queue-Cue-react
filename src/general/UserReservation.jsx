@@ -64,13 +64,14 @@ const UserReservation = React.createClass({
           <p>Hi {customer[0].customer_name}, you're in the queue for {customer[0].restaurant_name}</p> ||
           <p>Your queues...</p>
         }
-        <Button
+        {customer.length > 0 &&
+          <Button
           bsStyle="danger"
           bsSize="small"
 
         >
         Get out of the queue
-        </Button>
+        </Button>}
 
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>

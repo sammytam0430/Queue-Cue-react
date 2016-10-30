@@ -36,10 +36,12 @@ function mapDispatchToProps(dispatch) {
   return {
     handleSubmit(restId, name, phone, email, party_size) {
       let time_added = timeAdded(party_size);
-
       CustomerClient.newRes(restId, name, phone, email, party_size, time_added,
       function(party){
-        dispatch(ReservationActions.addReservation(party));
+        let new_customer = party.new_customer;
+        let new_reservation = party.new_reservation;
+        console.log("reso, customer, ", new_reservation, new_customer);
+        dispatch(ReservationActions.addReservation(new_reservation, new_customer));
         alert("Thanks for queuing up!");
       })
     }

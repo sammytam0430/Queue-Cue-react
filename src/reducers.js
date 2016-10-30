@@ -29,6 +29,8 @@ function reservations(state = [], action) {
           restaurant_id: action.restaurant_id,
           restaurant_name: action.restaurant_name,
           time_added: action.time_added,
+          customer_name: action.customer_name,
+          customer_email: action.customer_email,
           completed: false
         }]
     case 'ADD_RESERVATIONS':
@@ -48,14 +50,22 @@ function reservations(state = [], action) {
 
 function customers(state = [], action) {
   switch (action.type) {
-    case 'SHOW_RESERVATION':
+    case 'ADD_RESERVATION':
       return [...state,
         {
-          reservation_id: action.reservation_id,
+          reservation_id: action.id,
           restaurant_name: action.restaurant_name,
           customer_name: action.customer_name
         }
       ]
+      case 'SHOW_RESERVATION':
+        return [...state,
+          {
+            reservation_id: action.id,
+            restaurant_name: action.restaurant_name,
+            customer_name: action.customer_name
+          }
+        ]
     default:
       return state
   }
