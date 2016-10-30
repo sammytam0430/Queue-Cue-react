@@ -26,7 +26,7 @@ import Login from './general/Login.jsx';
 import Signup from './general/Signup.jsx';
 
 const logger = createLogger();
-let store = createStore(reducers, applyMiddleware(logger));
+let store = createStore(reducers, applyMiddleware(logger), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 let unsubscribe = store.subscribe(() => {
   console.log(store.getState());
 });
