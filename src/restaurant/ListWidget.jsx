@@ -12,6 +12,7 @@ function mapDispatchToProps(dispatch) {
   return {
     seatedTable(resId) {
       CustomerClient.deleteRes(resId, dispatch);
+      dispatch(RestaurantActions.deleteRes(resId));
       }
     }
   }

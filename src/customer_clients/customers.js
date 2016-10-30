@@ -16,14 +16,13 @@ function newRes(restId, name, phone, email, party_size, time_added, cb) {
   })
 }
 
-function deleteRes(resId, dispatch) {
+function deleteRes(resId) {
   ajax.delete('http://localhost:3000/reservations/' + resId)
   .end(function (err, res){
     if (err || !res.ok) {
       console.log('error!!!!!!', err);
       return
     }
-    dispatch(RestaurantActions.deleteRes(resId))
   })
 }
 

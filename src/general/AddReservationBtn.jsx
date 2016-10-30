@@ -39,7 +39,9 @@ function mapDispatchToProps(dispatch) {
 
       CustomerClient.newRes(restId, name, phone, email, party_size, time_added,
       function(party){
+        console.log("party ", party);
         dispatch(ReservationActions.addReservation(party));
+        dispatch(ReservationActions.showCustomerReservation(party.id, party.restaurant_name, name));
         alert("Thanks for queuing up!");
       })
     }

@@ -56,6 +56,17 @@ function customers(state = [], action) {
           customer_name: action.customer_name
         }
       ]
+    case 'DELETE_CUSTOMER_RESERVATION':
+      var index = findIndex(state, function(res) {
+        return res.id == action.reservation_id
+      });
+      if (index === 1) {
+        return state = []
+      }
+      return [
+        ...state.slice(0, index),
+        ...state.slice(index + 1)
+      ]
     default:
       return state
   }

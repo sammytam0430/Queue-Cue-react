@@ -28,6 +28,13 @@ function deleteRes(resId) {
   }
 }
 
+function deleteCustomerRes(resId) {
+  return {
+    type: 'DELETE_CUSTOMER_RESERVATION',
+    reservation_id: resId
+  }
+}
+
 function addReservation(party) {
   return {
     type: 'ADD_RESERVATION',
@@ -53,6 +60,7 @@ export default  {
   addRestaurants,
   reservationList,
   deleteRes,
+  deleteCustomerRes,
   addReservation,
   showCustomerReservation
 }

@@ -31,7 +31,9 @@ function mapDispatchToProps(dispatch) {
       })
     },
     deleteRes(resId) {
-      CustomerClient.deleteRes(resId, dispatch);
+      CustomerClient.deleteRes(resId);
+      dispatch(CustomerActions.deleteRes(resId));
+      dispatch(CustomerActions.deleteCustomerRes(resId));
     }
   }
 }
@@ -64,13 +66,16 @@ const UserReservation = React.createClass({
           <p>Hi {customer[0].customer_name}, you're in the queue for {customer[0].restaurant_name}</p> ||
           <p>Your queues...</p>
         }
-        <Button
+        {customer.length > 0 &&
+          <Button
+          id={customer[0].reservation_id}
           bsStyle="danger"
           bsSize="small"
-
-        >
-        Get out of the queue
-        </Button>
+          onClick={() => this.props.deleteRes(customer[0].reservation_id)}
+          >
+          Get out of the queue
+          </Button>
+        }
 
         <Modal show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>
