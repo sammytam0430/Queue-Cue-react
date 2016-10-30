@@ -26,6 +26,8 @@ function reservations(state = [], action) {
         {
           id: action.id,
           party_size: action.party_size,
+          restaurant_id: action.restaurant_id,
+          restaurant_name: action.restaurant_name,
           time_added: action.time_added,
           completed: false
         }]
@@ -44,9 +46,25 @@ function reservations(state = [], action) {
   }
 }
 
+function customers(state = [], action) {
+  switch (action.type) {
+    case 'SHOW_RESERVATION':
+      return [...state,
+        {
+          reservation_id: action.reservation_id,
+          restaurant_name: action.restaurant_name,
+          customer_name: action.customer_name
+        }
+      ]
+    default:
+      return state
+  }
+}
+
 const reducers = combineReducers ({
   restaurants,
-  reservations
+  reservations,
+  customers
 });
 
 export default reducers;

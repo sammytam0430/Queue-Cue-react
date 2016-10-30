@@ -57,7 +57,6 @@ const RestaurantProfile = React.createClass ({
         </tr>
       </tfoot>
       </table>
-       />
     </div>
     );
   }
