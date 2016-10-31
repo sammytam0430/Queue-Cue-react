@@ -18,16 +18,14 @@ function mapDispatchToProps(dispatch) {
 
 const ListWidget = React.createClass({
     render () {
-    let time = 0;
     return (
       <tbody>
         {this.props.reservations &&
           this.props.reservations.map((res) => {
-            time += res.time_added;
             return (
               <tr key={res.id}>
                 <td>{res.party_size}</td>
-                <td>{time}</td>
+                <td>{res.time_added}</td>
                 <td>{JSON.stringify(res.completed)}</td>
                 <td>
                   <button
