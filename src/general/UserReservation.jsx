@@ -31,8 +31,6 @@ function mapDispatchToProps(dispatch) {
       })
     },
     deleteRes(resId, customerId) {
-      // CustomerClient.deleteRes(resId, dispatch);
-      // CustomerClient.deleteCustomer(customerId, dispatch);
       CustomerClient.deleteResAndCustomer(resId, customerId, dispatch);
     }
   }
@@ -92,7 +90,7 @@ const UserReservation = React.createClass({
                 onClick={this.close}
                 type='submit'
               >
-                Add
+                Find me
               </Button>
             </form>
 

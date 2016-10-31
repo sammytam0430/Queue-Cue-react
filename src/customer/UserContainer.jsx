@@ -48,7 +48,6 @@ const UserContainer = React.createClass ({
             <th>Food</th>
             <th>Location</th>
             <th>Time</th>
-            <th>Wait</th>
           </tr>
         </thead>
         <tbody>
@@ -62,7 +61,6 @@ const UserContainer = React.createClass ({
             })}
         </tbody>
       </table>
-      <AddReservationForm />
     </div>
     );
   }

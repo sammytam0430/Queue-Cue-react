@@ -50,27 +50,7 @@ function deleteCustomerPromise(customerId, dispatch) {
 }
 /////////////////
 
-function deleteRes(resId, dispatch) {
-  ajax.delete('http://localhost:3000/reservations/' + resId)
-  .end(function (err, res){
-    if (err || !res.ok) {
-      console.log('error!!!!!!', err);
-      return
-    }
-    dispatch(RestaurantActions.deleteRes(resId))
-  })
-}
 
-function deleteCustomer(customerId, dispatch) {
-  ajax.delete('http://localhost:3000/customers/' + customerId)
-  .end(function (err, res){
-    if (err || !res.ok) {
-      console.log('error!!!!!!', err);
-      return
-    }
-    dispatch(RestaurantActions.deleteCustomer(customerId))
-  })
-}
 
 function getCustomers(cb) {
   ajax.get('http://localhost:3000/customers/')
@@ -87,8 +67,6 @@ function getCustomers(cb) {
 
 export default {
   newRes,
-  deleteRes,
-  deleteCustomer,
   getCustomers,
   deleteResAndCustomer
 }
