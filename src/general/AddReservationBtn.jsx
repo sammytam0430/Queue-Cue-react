@@ -75,7 +75,7 @@ const AddReservationBtn = React.createClass({
           bsStyle="success"
           bsSize="small"
           >
-          Add
+          Queue up!
           </Button>
         }
 
