@@ -82,7 +82,7 @@ function customers(state = [{active: false}], action) {
   }
 }
 
-const reducers = combineReducers ({
+const reducers = combineReducers({
   restaurants,
   reservations,
   customers

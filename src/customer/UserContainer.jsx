@@ -34,23 +34,14 @@ const UserContainer = React.createClass ({
   },
 
   render() {
-    console.log(this.props.reservations);
+
     const { restaurants } = this.props;
     return (
     <div id="user-container">
-      <div id='map-cont'>
-        <div id='map'></div>
+    <div id='map-cont'>
+      <div id='map'></div>
       </div>
-      <table className="list-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Food</th>
-            <th>Location</th>
-            <th>Time</th>
-          </tr>
-        </thead>
-        <tbody>
+         <div>
             {this.props.restaurants.map((restaurant) => {
               return (
                 <ListWidget
@@ -59,11 +50,11 @@ const UserContainer = React.createClass ({
                 restaurant={restaurant}
                 button1={AddReservationBtn}/>)
             })}
-        </tbody>
-      </table>
+        </div>
     </div>
     );
   }
 });
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserContainer);
