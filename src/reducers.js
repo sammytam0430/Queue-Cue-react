@@ -49,7 +49,7 @@ function location(state = [], action) {
     case 'LOCATION':
       return [...state,
         {
-          location: action.location
+          userLocation: action.userLocation
         }]
     default:
       return state
@@ -57,6 +57,7 @@ function location(state = [], action) {
 }
 
 const reducers = combineReducers ({
+  location,
   restaurants,
   reservations
 });

@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 import RestaurantActions from '../actions.js';
 import CustomerClient from '../customer_clients/customers.js';
 import CompletedBtn from '../restaurant/CompletedReservationBtn.jsx';
+import LocationActions from '../actions.js';
+
 
 function mapStateToProps(state) {
   return state

@@ -7,8 +7,22 @@ window.onload = function() {
   var labelIndex = 0;
 
   function initMap() {
+    // Try HTML5 geolocation.
+    navigator.geolocation.getCurrentPosition(function(position) {
+      pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+        name: 'Your Location',
+        geometry: {
+          location: {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          }
+        }
+      };
+
     map = new google.maps.Map(document.getElementById('map'), {
-      center: {lat: 49.2827, lng: -123.1207},
+      center: {lat: pos.lat, lng: pos.lng},
       zoom: 17,
       styles: [
         {
@@ -243,24 +257,11 @@ window.onload = function() {
 
     infoWindow = new google.maps.InfoWindow({map: map});
 
-    // Try HTML5 geolocation.
-    navigator.geolocation.getCurrentPosition(function(position) {
-      pos = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude,
-        name: 'Your Location',
-        geometry: {
-          location: {
-            lat: position.coords.latitude,
-            lng: position.coords.longitude
-          }
-        }
-      };
 
       service = new google.maps.places.PlacesService(map);
       service.nearbySearch({
         location: pos,
-        radius: 100,
+        radius: 200,
         type: ['restaurant']
       }, callback);
       infoWindow.setPosition(pos);

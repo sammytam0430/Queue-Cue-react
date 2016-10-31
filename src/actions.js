@@ -37,10 +37,10 @@ function addReservation(party) {
   }
 }
 
-function addLocation(location) {
+function addLocation(userLocation) {
   return {
     type: 'LOCATION',
-    location: location
+    userLocation: userLocation
   }
 }
 
