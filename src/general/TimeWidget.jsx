@@ -15,8 +15,8 @@ const popoverBottom = (
   </Popover>
 );
 
-const TimeWidget = React.createClass ({
 
+const TimeWidget = React.createClass ({
 
   render() {
     return (

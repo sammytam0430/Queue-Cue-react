@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import ajax from 'superagent';
 import RestaurantClient from '../rest_clients/restaurants';
 import RestaurantActions from '../actions.js';
-import ListWidget from '../restaurant/ListWidget.jsx';
 
 
 const FormWidget = React.createClass ({
@@ -21,11 +20,12 @@ const FormWidget = React.createClass ({
               <p>Waiting Time: {time}</p>
             </div>)
         })}
+
       </div>
     );
   }
 
 });
 
-export default FormWidget;
+export default (FormWidget);
 

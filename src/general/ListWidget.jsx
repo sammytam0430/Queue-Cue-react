@@ -13,6 +13,7 @@ const ListWidget = React.createClass ({
   render() {
 
     return(
+
       <article className='restaurant-table'>
          Name: {this.props.restaurant.name}
          <br />
@@ -27,6 +28,7 @@ const ListWidget = React.createClass ({
         </article>
         <br />
       </article>
+
     )
   }
 });
