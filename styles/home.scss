@@ -182,23 +182,18 @@ $spacing-unit: $base-line-height;
 
 .restaurant-table {
   border: solid 1pt black;
-  width: 20%;
-  display: inline-flex;
-  margin: 1em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }
 
-/*.listOfRes {
-  background:#181818;
-  color:#FFF;
-  position: absolute;
-  top: -250px;
-  left: 0;
-  width: 100%;
-  height: 250px;
-  padding: 20px;
-  transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
-  overflow: hidden;
-  box-sizing: border-box;
+.restaurant-table > div {
+
 }
-*/
+.listOfRes {
+  height: 60px;
+  overflow: scroll;
+
+}
+
 
