@@ -23,15 +23,17 @@ function mapDispatchToProps(dispatch) {
           return customer.email.toLowerCase() == email.toLowerCase()
         })
         let currentUserId = user[0].id;
-        console.log("Current user ", user[0].name);
+        console.log("Current user ", user[0]);
         let userReservations = remove(reservations, function(reservation) {
           return reservation.customer_id == currentUserId
         })
-        dispatch(CustomerActions.showCustomerReservation(userReservations[0].id,  userReservations[0].restaurant_name, user[0].name))
+        dispatch(CustomerActions.showCustomerReservation(userReservations[0].id,  userReservations[0].restaurant_name, user[0].name, user[0].id))
       })
     },
-    deleteRes(resId) {
-      CustomerClient.deleteRes(resId, dispatch);
+    deleteRes(resId, customerId) {
+      // CustomerClient.deleteRes(resId, dispatch);
+      // CustomerClient.deleteCustomer(customerId, dispatch);
+      CustomerClient.deleteResAndCustomer(resId, customerId, dispatch);
     }
   }
 }
@@ -56,19 +58,20 @@ const UserReservation = React.createClass({
 
   render () {
     let email
-    const { customer } = this.props
+    const { customer, handleSubmit, deleteRes } = this.props
+    let lastCustomer = customer.length - 1
 
     return (
       <div>
-        {customer.length > 0 &&
-          <p>Hi {customer[0].customer_name}, you're in the queue for {customer[0].restaurant_name}</p> ||
+        {customer[lastCustomer].active &&
+          <p>Hi {customer[lastCustomer].customer_name}, you're in the queue for {customer[lastCustomer].restaurant_name}</p> ||
           <p>Your queues...</p>
         }
-        {customer.length > 0 &&
+        {customer[lastCustomer].active &&
           <Button
           bsStyle="danger"
           bsSize="small"
-
+          onClick={() => {deleteRes(customer[lastCustomer].reservation_id, customer[lastCustomer].customer_id)}}
         >
         Get out of the queue
         </Button>}
@@ -81,7 +84,7 @@ const UserReservation = React.createClass({
             <p>Enter your email to keep your place</p>
             <form onSubmit={e => {
               e.preventDefault()
-              this.props.handleSubmit(email.value)
+              handleSubmit(email.value)
             }} >
               <input placeholder="email" ref={node => {email = node
               }} />

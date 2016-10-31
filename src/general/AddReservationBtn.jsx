@@ -67,10 +67,11 @@ const AddReservationBtn = React.createClass({
     let phone
     let email
     let party_size
-
+    const { customers } = this.props;
+    let lastCustomer = customers.length - 1;
     return (
       <div>
-        {this.props.customers.length === 0 &&
+        {!customers[lastCustomer].active &&
           <Button
           onClick={this.open}
           id={this.props.id}

@@ -37,16 +37,26 @@ function addReservation(new_reservation, new_customer) {
     party_size: new_reservation.party_size,
     time_added: new_reservation.time_added,
     customer_name: new_customer.name,
-    customer_email: new_customer.email
+    customer_email: new_customer.email,
+    customer_id: new_customer.id,
+    active: true
   }
 }
 
-function showCustomerReservation(reservation_id, restaurant_name, customer_name){
+function showCustomerReservation(reservation_id, restaurant_name, customer_name, customer_id){
   return {
     type: 'SHOW_RESERVATION',
     reservation_id: reservation_id,
     restaurant_name: restaurant_name,
-    customer_name: customer_name
+    customer_name: customer_name,
+    customer_id: customer_id
+  }
+}
+
+function deleteCustomer(customerId) {
+  return {
+    type: 'DELETE_CUSTOMER',
+    customer_id: customerId
   }
 }
 
@@ -56,5 +66,6 @@ export default  {
   reservationList,
   deleteRes,
   addReservation,
-  showCustomerReservation
+  showCustomerReservation,
+  deleteCustomer
 }
