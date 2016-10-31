@@ -29,7 +29,6 @@ function reservations(state = [], action) {
           restaurant_id: action.restaurant_id,
           restaurant_name: action.restaurant_name,
           time_added: action.time_added,
-          reservations: [...action.reservations],
           completed: false
         }]
     case 'ADD_RESERVATIONS':
@@ -62,7 +61,7 @@ function customers(state = [], action) {
   }
 }
 
-const reducers = combineReducers ({
+const reducers = combineReducers({
   restaurants,
   reservations,
   customers

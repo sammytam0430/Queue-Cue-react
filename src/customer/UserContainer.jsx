@@ -32,7 +32,6 @@ const UserContainer = React.createClass ({
     this.props.storeData();
   },
 
-  // <div id='map'></div>
   render() {
     const { restaurants } = this.props;
     console.log('these are the restaurants', restaurants);
@@ -40,30 +39,21 @@ const UserContainer = React.createClass ({
     return (
     <div id="user-container">
     <div id='map-cont'>
+      <div id='map'></div>
       </div>
-      <table className="list-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Food</th>
-            <th>Location</th>
-            <th>Time</th>
-            <th>Wait</th>
-          </tr>
-        </thead>
-        <tbody>
+         <div>
             {this.props.restaurants.map((restaurant) => {
               return (
                 <ListWidget key={restaurant.id}
                 restaurant={restaurant}
                 button1={AddReservationBtn}/>)
             })}
-        </tbody>
-      </table>
+        </div>
       <AddReservationForm />
     </div>
     );
   }
 });
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserContainer);
