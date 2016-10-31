@@ -51,7 +51,6 @@ const UserContainer = React.createClass ({
                 button1={AddReservationBtn}/>)
             })}
         </div>
-      <AddReservationForm />
     </div>
     );
   }
