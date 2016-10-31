@@ -4,18 +4,14 @@ import { connect } from 'react-redux';
 import ajax from 'superagent';
 import RestaurantClient from '../rest_clients/restaurants';
 import RestaurantActions from '../actions.js';
-import ListWidget from '../restaurant/ListWidget.jsx';
 
 
 const FormWidget = React.createClass ({
 
-
   render() {
-    console.log('within the form',this.props.reservations);
     let time = 0;
     return (
-      <div>
-        <div>
+      <div className="listOfRes">
         {this.props.reservations.map((res)=>{
           time += res.time_added;
           return (
@@ -24,12 +20,12 @@ const FormWidget = React.createClass ({
               <p>Waiting Time: {time}</p>
             </div>)
         })}
-        </div>
+
       </div>
     );
   }
 
 });
 
-export default FormWidget;
+export default (FormWidget);
 

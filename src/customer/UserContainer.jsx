@@ -22,48 +22,39 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    restaurants: state.restaurants
+    restaurants: state.restaurants,
+    reservations: state.reservation_list
   };
 };
 
 const UserContainer = React.createClass ({
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.storeData();
   },
 
-  // <div id='map'></div>
   render() {
-    const { restaurants } = this.props;
-    console.log('these are the restaurants', restaurants);
 
+    const { restaurants } = this.props;
     return (
     <div id="user-container">
     <div id='map-cont'>
+      <div id='map'></div>
       </div>
-      <table className="list-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Food</th>
-            <th>Location</th>
-            <th>Time</th>
-            <th>Wait</th>
-          </tr>
-        </thead>
-        <tbody>
+         <div>
             {this.props.restaurants.map((restaurant) => {
               return (
-                <ListWidget key={restaurant.id}
+                <ListWidget
+                key={restaurant.id}
+                reservations={this.props.reservations}
                 restaurant={restaurant}
                 button1={AddReservationBtn}/>)
             })}
-        </tbody>
-      </table>
-      <AddReservationForm />
+        </div>
     </div>
     );
   }
 });
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserContainer);
