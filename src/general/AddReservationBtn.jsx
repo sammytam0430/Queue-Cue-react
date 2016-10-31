@@ -36,10 +36,12 @@ function mapDispatchToProps(dispatch) {
   return {
     handleSubmit(restId, name, phone, email, party_size) {
       let time_added = timeAdded(party_size);
-
       CustomerClient.newRes(restId, name, phone, email, party_size, time_added,
       function(party){
-        dispatch(ReservationActions.addReservation(party));
+        let new_customer = party.new_customer;
+        let new_reservation = party.new_reservation;
+        console.log("reso, customer, ", new_reservation, new_customer);
+        dispatch(ReservationActions.addReservation(new_reservation, new_customer));
         alert("Thanks for queuing up!");
       })
     }
@@ -65,10 +67,11 @@ const AddReservationBtn = React.createClass({
     let phone
     let email
     let party_size
-
+    const { customers } = this.props;
+    let lastCustomer = customers.length - 1;
     return (
       <div>
-        {this.props.customers.length === 0 &&
+        {!customers[lastCustomer].active &&
           <Button
           onClick={this.open}
           id={this.props.id}
