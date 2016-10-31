@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import LocationActions from '../actions.js';
 
-console.log({dispatch});
+// console.log({dispatch});
 
 const LocationBar = React.createClass ({
 
@@ -18,7 +18,7 @@ const LocationBar = React.createClass ({
         onKeyPress={e => {
           if(e.key === 'Enter') {
             e.preventDefault();
-            console.log();
+            console.log('!!!!!!!!!!!!');
             this.handleSubmit(this.refs.location.value)
           }
         }}/>

@@ -10,6 +10,7 @@ function newRes(restId, name, phone, email, party_size, time_added, cb) {
     if (err || !res.ok) {
       console.log('error!!!!!!', err);
     } else {
+      console.log("this", res.body);
       cb(res.body)
     }
   })
@@ -26,8 +27,21 @@ function deleteRes(resId, dispatch) {
   })
 }
 
+function getCustomers(cb) {
+  ajax.get('http://localhost:3000/customers/')
+  .end(function(err, res) {
+    if (err || !res.ok) {
+      console.log('error!!!!!!', err);
+      return
+    } else {
+      cb(res.body)
+    }
+  })
+}
+
 
 export default {
   newRes,
-  deleteRes
+  deleteRes,
+  getCustomers
 }

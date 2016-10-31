@@ -17,7 +17,7 @@ import { Button, Modal } from 'react-bootstrap';
 // }
 
 const CompletedBtn = React.createClass({
-  
+
 
   render () {
     const { resId, handleClick } = this.props;

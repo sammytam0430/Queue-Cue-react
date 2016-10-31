@@ -11,29 +11,32 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     seatedTable(resId) {
-      CustomerClient.seatTable(resId, function(reservation){
-        dispatch(RestaurantActions.addReservation(reservation))
-      })
+      CustomerClient.deleteRes(resId, dispatch);
+      }
     }
   }
-}
 
-const RestaurantQueue = React.createClass({
-
+const ListWidget = React.createClass({
     render () {
+    let time = 0;
     return (
       <tbody>
         {this.props.reservations &&
           this.props.reservations.map((res) => {
+            time += res.time_added;
             return (
               <tr key={res.id}>
                 <td>{res.party_size}</td>
-                <td>{res.time_added}</td>
+                <td>{time}</td>
                 <td>{JSON.stringify(res.completed)}</td>
-                <td>{<CompletedBtn
-                  resId={res.id}
-                  handleClick={this.props.seatedTable}
-                  />}
+                <td>
+                  <button
+                    id={res.id}
+                    className="btn btn-success btn-sm"
+                    onClick={() => this.props.seatedTable(res.id)}
+                    >
+                    Delete
+                  </button>
                 </td>
               </tr>
             )
@@ -43,5 +46,4 @@ const RestaurantQueue = React.createClass({
     )
   }
 });
-
-export default connect(mapStateToProps, mapDispatchToProps)(RestaurantQueue);
+export default connect(mapStateToProps, mapDispatchToProps)(ListWidget);

@@ -26,7 +26,10 @@ function reservations(state = [], action) {
         {
           id: action.id,
           party_size: action.party_size,
+          restaurant_id: action.restaurant_id,
+          restaurant_name: action.restaurant_name,
           time_added: action.time_added,
+          reservations: [...action.reservations],
           completed: false
         }]
     case 'ADD_RESERVATIONS':
@@ -50,7 +53,23 @@ function location(state = [], action) {
       return [...state,
         {
           userLocation: action.userLocation
-        }]
+        }
+      ]
+    default:
+      return state
+  }
+}
+
+function customers(state = [], action) {
+  switch (action.type) {
+    case 'SHOW_RESERVATION':
+      return [...state,
+        {
+          reservation_id: action.reservation_id,
+          restaurant_name: action.restaurant_name,
+          customer_name: action.customer_name
+        }
+      ]
     default:
       return state
   }
@@ -59,7 +78,8 @@ function location(state = [], action) {
 const reducers = combineReducers ({
   location,
   restaurants,
-  reservations
+  reservations,
+  customers
 });
 
 export default reducers;

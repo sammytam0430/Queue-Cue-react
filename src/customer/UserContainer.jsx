@@ -13,8 +13,8 @@ import RestaurantActions from '../actions.js';
 function mapDispatchToProps(dispatch) {
   return {
     storeData() {
-      RestaurantClient.get(function(data){
-        dispatch(RestaurantActions.addRestaurants(data));
+      RestaurantClient.get(function(restaurants){
+        dispatch(RestaurantActions.addRestaurants(restaurants));
       });
     }
   };
@@ -28,28 +28,39 @@ function mapStateToProps(state) {
 
 const UserContainer = React.createClass ({
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.storeData();
   },
 
+  // <div id='map'></div>
   render() {
     const { restaurants } = this.props;
+    console.log('these are the restaurants', restaurants);
+
     return (
     <div id="user-container">
+    <div id='map-cont'>
+      </div>
       <table className="list-table">
         <thead>
           <tr>
             <th>Name</th>
             <th>Food</th>
             <th>Location</th>
+            <th>Time</th>
+            <th>Wait</th>
           </tr>
         </thead>
-        <ListWidget
-          data={restaurants}
-          button1={AddReservationBtn} />
+        <tbody>
+            {this.props.restaurants.map((restaurant) => {
+              return (
+                <ListWidget key={restaurant.id}
+                restaurant={restaurant}
+                button1={AddReservationBtn}/>)
+            })}
+        </tbody>
       </table>
       <AddReservationForm />
-      <div id='map'></div>
     </div>
     );
   }
