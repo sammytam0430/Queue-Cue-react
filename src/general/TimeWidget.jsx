@@ -27,9 +27,15 @@ const TimeWidget = React.createClass ({
           time += res.time_added;
         })}
         <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={popoverBottom}>
+        {
+          {time} == 0 ?
+          <div>
+            No Wait
+          </div>:
           <div>
             {time} Minutes
           </div>
+        }
         </OverlayTrigger>
       </div>
     );

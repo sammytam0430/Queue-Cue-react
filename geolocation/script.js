@@ -175,7 +175,7 @@ window.onload = function() {
             "elementType": "labels.text.fill",
             "stylers": [
               {
-                "color": "#757575"
+                "color": "#000000"
               }
             ]
           },
@@ -193,7 +193,7 @@ window.onload = function() {
             "elementType": "labels.text.fill",
             "stylers": [
               {
-                "color": "#616161"
+                "color": "#000000"
               }
             ]
           },
@@ -202,7 +202,7 @@ window.onload = function() {
             "elementType": "labels.text.fill",
             "stylers": [
               {
-                "color": "#9e9e9e"
+                "color": "#000000"
               }
             ]
           },
