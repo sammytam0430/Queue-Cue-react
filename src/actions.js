@@ -17,7 +17,16 @@ function addRestaurants(data) {
 function filterRestaurants(restaurants) {
   return {
     type: 'FILTER_RESTAURANTS',
-    restaurants: restaurants
+    restaurants: restaurants,
+    search: true
+  }
+}
+
+function resetRestaurantList(restaurants) {
+  return {
+    type: 'RESET_RESTAURANTS',
+    restaurants: restaurants,
+    search: false
   }
 }
 
@@ -78,6 +87,7 @@ export default  {
   addRestaurant,
   addRestaurants,
   filterRestaurants,
+  resetRestaurantList,
   reservationList,
   deleteRes,
   addReservation,

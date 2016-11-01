@@ -16,13 +16,18 @@ function restaurants(state = [], action) {
     case 'FILTER_RESTAURANTS':
       let negative_results = difference(state, action.restaurants)
       let newState = negative_results.concat(action.restaurants);
-      console.log("newstate ", newState.slice(0, index));
       let index = action.restaurants.length;
       return newState.slice(0, index)
+      break;
+    case 'RESET_RESTAURANTS':
+      let diff = difference(action.restaurants, state);
+      return diff
+      break;
     default:
       return state
   }
 };
+
 
 function reservations(state = [], action) {
   switch (action.type) {
@@ -98,11 +103,28 @@ function customers(state = [{active: false}], action) {
   }
 }
 
+function search(state = [{search: false}], action) {
+  switch (action.type) {
+    case 'FILTER_RESTAURANTS':
+      return [
+        {search: action.search}
+      ]
+    case 'RESET_RESTAURANTS':
+      return [
+        {search: action.search}
+      ]
+      break;
+    default:
+      return state
+  }
+}
+
 const reducers = combineReducers ({
   location,
   restaurants,
   reservations,
-  customers
+  customers,
+  search
 });
 
 export default reducers;

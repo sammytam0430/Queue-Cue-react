@@ -9,7 +9,8 @@ import { Button } from 'react-bootstrap';
 
 function mapStateToProps(state) {
   return {
-    restaurants: state.restaurants
+    restaurants: state.restaurants,
+    activeSearch: state.search
   }
 }
 
@@ -29,7 +30,7 @@ function mapDispatchToProps(dispatch) {
 
     resetRestaurants() {
       RestaurantClient.get(function(restaurants) {
-        dispatch
+        dispatch(RestaurantActions.resetRestaurantList(restaurants));
       })
     }
   }
@@ -38,27 +39,35 @@ function mapDispatchToProps(dispatch) {
 
 const SearchBar = React.createClass ({
 
-  componentDidMount() {
-    console.log(this.props.restaurants);
-  },
-
   render() {
+    const { restaurants, activeSearch } = this.props;
+    let searchIndex = activeSearch.length - 1;
     let searchText
     return (
       <div className='search-bar'>
         <div className="input-group">
           <span className="input-group-btn">
-          <button
-            className="btn btn-secondary"
-            onClick={() => {
-              this.props.filterRestaurants(
-                searchText.value
-              )
-              searchText.value = ''
-            }}
-          >
-            Search
-          </button>
+            {!activeSearch[searchIndex].search &&
+              <button
+                className="btn btn-info"
+                onClick={() => {
+                  this.props.filterRestaurants(
+                    searchText.value
+                  )
+                  searchText.value = ''
+                }}>
+              Search
+              </button>
+            }
+            {activeSearch[searchIndex].search &&
+              <button
+                className="btn btn-info"
+                onClick={() => {
+                  this.props.resetRestaurants()
+                }}>
+              Reset
+              </button>
+            }
           </span>
           <input
           placeholder="Search Here"

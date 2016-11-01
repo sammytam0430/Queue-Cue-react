@@ -31,7 +31,6 @@ const RestaurantProfile = React.createClass ({
   },
 
   render() {
-    console.log("RestProf props resList", this.props.reservationList);
     return (
     <div>
       <table className="list-table">
