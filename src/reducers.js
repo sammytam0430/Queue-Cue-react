@@ -106,11 +106,11 @@ function customers(state = [{active: false}], action) {
 function search(state = [{search: false}], action) {
   switch (action.type) {
     case 'FILTER_RESTAURANTS':
-      return [
+      return [...state,
         {search: action.search}
       ]
     case 'RESET_RESTAURANTS':
-      return [
+      return [...state,
         {search: action.search}
       ]
       break;
