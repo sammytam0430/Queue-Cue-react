@@ -103,28 +103,13 @@ function customers(state = [{active: false}], action) {
   }
 }
 
-function search(state = [{search: false}], action) {
-  switch (action.type) {
-    case 'FILTER_RESTAURANTS':
-      return [...state,
-        {search: action.search}
-      ]
-    case 'RESET_RESTAURANTS':
-      return [...state,
-        {search: action.search}
-      ]
-      break;
-    default:
-      return state
-  }
-}
+
 
 const reducers = combineReducers ({
   location,
   restaurants,
   reservations,
-  customers,
-  search
+  customers
 });
 
 export default reducers;

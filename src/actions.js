@@ -17,16 +17,14 @@ function addRestaurants(data) {
 function filterRestaurants(restaurants) {
   return {
     type: 'FILTER_RESTAURANTS',
-    restaurants: restaurants,
-    search: true
+    restaurants: restaurants
   }
 }
 
 function resetRestaurantList(restaurants) {
   return {
     type: 'RESET_RESTAURANTS',
-    restaurants: restaurants,
-    search: false
+    restaurants: restaurants
   }
 }
 
