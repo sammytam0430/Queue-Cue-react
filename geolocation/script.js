@@ -88,7 +88,7 @@ window.onload = function() {
           "elementType": "geometry.fill",
           "stylers": [
             {
-              "color": "#249393"
+              "color": "#373737"
             }
           ]
         },
