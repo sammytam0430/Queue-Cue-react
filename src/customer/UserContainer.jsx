@@ -22,6 +22,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
+    location: state.location,
     restaurants: state.restaurants,
     reservations: state.reservation_list
   };
@@ -46,7 +47,7 @@ const UserContainer = React.createClass ({
   },
 
   render() {
-
+    console.log(this.props.location.loacation);
     const { restaurants } = this.props;
     return (
     <div id="user-container">
