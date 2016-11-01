@@ -16,8 +16,8 @@ const FormWidget = React.createClass ({
           time += res.time_added;
           return (
             <div key={res.id}>
-              <p>Party Size: {res.party_size}</p>
-              <p>Waiting Time: {time}</p>
+              <div>Party Size: {res.party_size}</div>
+              <div>Waiting Time: {time}</div>
             </div>)
         })}
 
