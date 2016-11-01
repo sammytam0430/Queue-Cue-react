@@ -64,12 +64,27 @@ const UserContainer = React.createClass ({
         </div>
         <div className="scroll">
           {this.props.restaurants.map((restaurant) => {
-            return (
-              <ListWidget
-              key={restaurant.id}
-              reservations={this.props.reservations}
-              restaurant={restaurant}
-              button1={AddReservationBtn}/>)
+            if (this.props.location.location) {
+              if(this.props.location.location.toLowerCase() === restaurant.location.toLowerCase()) {
+                return (
+                  <ListWidget
+                  key={restaurant.id}
+                  location={this.props.location}
+                  reservations={this.props.reservations}
+                  restaurant={restaurant}
+                  button1={AddReservationBtn}/>
+                )
+              }
+            } else {
+              return (
+                <ListWidget
+                key={restaurant.id}
+                location={this.props.location}
+                reservations={this.props.reservations}
+                restaurant={restaurant}
+                button1={AddReservationBtn}/>
+              )
+            }
           })}
         </div>
       </div>
