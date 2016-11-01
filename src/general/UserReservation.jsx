@@ -22,12 +22,15 @@ function mapDispatchToProps(dispatch) {
         let user = remove(customers, function(customer) {
           return customer.email.toLowerCase() == email.toLowerCase()
         })
-        let currentUserId = user[0].id;
-        console.log("Current user ", user[0]);
+        let lastUser = user.length - 1;
+        let currentUserId = user[lastUser].id;
+        console.log("Current user ", currentUserId);
         let userReservations = remove(reservations, function(reservation) {
           return reservation.customer_id == currentUserId
         })
-        dispatch(CustomerActions.showCustomerReservation(userReservations[0].id,  userReservations[0].restaurant_name, user[0].name, user[0].id))
+        console.log("before dispatch ", userReservations);
+        let index = userReservations.length - 1;
+        dispatch(CustomerActions.showCustomerReservation(userReservations[index].id,  userReservations[index].restaurant_name, user[lastUser].name, user[lastUser].id))
       })
     },
     deleteRes(resId, customerId) {
