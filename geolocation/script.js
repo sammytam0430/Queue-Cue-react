@@ -344,18 +344,13 @@ window.onload = function() {
       });
     }
 
-    function toggleBounce() {
-      if (marker.getAnimation() !== null) {
-        marker.setAnimation(null);
-      } else {
-        marker.setAnimation(google.maps.Animation.BOUNCE);
-      }
-    }
-
     google.maps.event.addListener(marker, 'click', function() {
-      toggleBounce();
+      marker.setAnimation(google.maps.Animation.BOUNCE);
       infoWindow.setContent(place.name);
       infoWindow.open(map, this);
+      setTimeout(function () {
+          marker.setAnimation(null);
+      }, 1400);
     });
 
     return marker;
