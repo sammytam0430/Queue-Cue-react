@@ -22,6 +22,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
+    location: state.location,
     restaurants: state.restaurants,
     reservations: state.reservation_list
   };
@@ -33,25 +34,61 @@ const UserContainer = React.createClass ({
     this.props.storeData();
   },
 
-  render() {
+  flipBox(event) {
+    event.preventDefault()
+    let m = document.getElementById('user-container'), c = m.style;
+        c.transform = 'rotateX(89deg)';
+  },
 
+  flipBack(event) {
+    event.preventDefault()
+    let m = document.getElementById('user-container'), c = m.style;
+        c.transform = 'rotateX(4deg)';
+  },
+
+  render() {
     const { restaurants } = this.props;
     return (
+
     <div id="user-container">
-    <div id='map-cont'>
-      <div id='map'></div>
+      <div id='map-cont'>
+        <div id='map'></div>
       </div>
-         <div>
-            {this.props.restaurants.map((restaurant) => {
+      <div className="toList" onClick={this.flipBox}>
+        ▼
+      </div>
+      <div className="table-container">
+        <div className="toMap" onClick={this.flipBack}>
+          ▲
+        </div>
+        <div className="scroll">
+          {this.props.restaurants.map((restaurant) => {
+            if (this.props.location.location) {
+              if(this.props.location.location.toLowerCase() === restaurant.location.toLowerCase()) {
+                return (
+                  <ListWidget
+                  key={restaurant.id}
+                  location={this.props.location}
+                  reservations={this.props.reservations}
+                  restaurant={restaurant}
+                  button1={AddReservationBtn}/>
+                )
+              }
+            } else {
               return (
                 <ListWidget
                 key={restaurant.id}
+                location={this.props.location}
                 reservations={this.props.reservations}
                 restaurant={restaurant}
-                button1={AddReservationBtn}/>)
-            })}
+                button1={AddReservationBtn}/>
+              )
+            }
+          })}
         </div>
+      </div>
     </div>
+
     );
   }
 });

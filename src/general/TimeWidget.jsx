@@ -9,22 +9,34 @@ import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
 
 
 
-const popoverBottom = (
-  <Popover id="popover-positioned-bottom" title="Popover bottom">
-    <strong>Holy guacamole!</strong> Check this info.
-  </Popover>
-);
+
 
 
 const TimeWidget = React.createClass ({
 
   render() {
+  const popoverBottom = (
+  <Popover id="ppopover-trigger-click-root-close" title="Waiting List">
+    <FormWidget reservations={this.props.reservations}/>
+  </Popover>
+  );
+  let time = 0;
     return (
       <div>
-        <OverlayTrigger trigger="click" placement="bottom" overlay={popoverBottom}>
-          <button>HERE</button>
+        {this.props.reservations.map((res)=>{
+          time += res.time_added;
+        })}
+        <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={popoverBottom}>
+        {
+          {time} == 0 ?
+          <div>
+            No Wait
+          </div>:
+          <div>
+            {time} Minutes
+          </div>
+        }
         </OverlayTrigger>
-          <FormWidget reservations={this.props.reservations}/>
       </div>
     );
   }

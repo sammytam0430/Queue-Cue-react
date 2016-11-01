@@ -50,6 +50,13 @@ function addReservation(new_reservation, new_customer) {
   }
 }
 
+function addLocation(location) {
+  return {
+    type: 'LOCATION',
+    location: location
+  }
+}
+
 function showCustomerReservation(reservation_id, restaurant_name, customer_name, customer_id){
   return {
     type: 'SHOW_RESERVATION',
@@ -75,5 +82,6 @@ export default  {
   deleteRes,
   addReservation,
   showCustomerReservation,
-  deleteCustomer
+  deleteCustomer,
+  addLocation
 }

@@ -25,6 +25,7 @@ import Auth from './restaurant/Auth.jsx';
 import Login from './general/Login.jsx';
 import Signup from './general/Signup.jsx';
 
+
 const logger = createLogger();
 let store = createStore(reducers, applyMiddleware(logger));
 let unsubscribe = store.subscribe(() => {

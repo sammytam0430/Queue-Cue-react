@@ -63,7 +63,8 @@ const UserReservation = React.createClass({
       <div>
         {customer[lastCustomer].active &&
           <p>Hi {customer[lastCustomer].customer_name}, you're in the queue for {customer[lastCustomer].restaurant_name}</p> ||
-          <p>Your queues...</p>
+          <span>Your queues...
+          </span>
         }
         {customer[lastCustomer].active &&
           <Button

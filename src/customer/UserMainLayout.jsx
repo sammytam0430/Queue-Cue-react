@@ -13,19 +13,19 @@ const UserMainLayout = React.createClass ({
           <div className="title">
             Queue
           </div>
-            <span className="queuer queuer1">
+          <span className="queuer queuer1">
             <div className="triangle triangle1">
             </div>
-            </span>
-            <span className="queuer queuer2">
+          </span>
+          <span className="queuer queuer2">
             <div className="triangle triangle2">
             </div>
-            </span>
-            <span className="queuer queuer3">
+          </span>
+          <span className="queuer queuer3">
             <div className="triangle triangle3">
             </div>
-            </span>
-          <div className="line line1 row" />
+          </span>
+          <div className="line line1" />
             <SearchBar />
             <LocationBar />
           <div className="line line2" />
