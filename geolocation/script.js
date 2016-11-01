@@ -333,14 +333,14 @@ window.onload = function() {
         map: map,
         position: place.geometry.location,
         title: place.name,
-        icon: 'http://maps.google.com/mapfiles/ms/micons/red-dot.png'
+        icon: 'http://maps.google.com/mapfiles/ms/micons/man.png',
       });
     } else {
       marker = new google.maps.Marker({
         map: map,
         position: place.geometry.location,
         title: place.name,
-        icon: 'http://maps.google.com/mapfiles/ms/micons/blue-dot.png'
+        icon: 'http://maps.google.com/mapfiles/ms/micons/ltblue-dot.png'
       });
     }
 

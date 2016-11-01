@@ -18,20 +18,24 @@ const ListWidget = React.createClass ({
 
     return(
 
-      <article className='restaurant-table'>
-         Name: {this.props.restaurant.name}
-         <br />
-         Type of Food: {this.props.restaurant.food_type}
-         <br />
-         Location: {this.props.restaurant.location}
-         <br />
-          {<this.props.button1 {... this.props.restaurant} />}
-        <article>
-        Wait Time: {<TimeWidget resId={this.props.restaurant.id}
+      <div className='restaurant-table'>
+        <div>
+          {<TimeWidget resId={this.props.restaurant.id}
         reservations={this.props.restaurant.reservations}/>}
-        </article>
-        <br />
-      </article>
+        </div>
+        <div>
+          {this.props.restaurant.name}
+        </div>
+        <div>
+          Food: {this.props.restaurant.food_type}
+        </div>
+        <div>
+          Location: {this.props.restaurant.location}
+        </div>
+        <div>
+          {<this.props.button1 {... this.props.restaurant} />}
+         </div>
+      </div>
 
     )
   }

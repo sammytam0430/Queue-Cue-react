@@ -34,6 +34,18 @@ const UserContainer = React.createClass ({
     this.props.storeData();
   },
 
+  flipBox(event) {
+    event.preventDefault()
+    let m = document.getElementById('user-container'), c = m.style;
+        c.transform = 'rotateX(89deg)';
+  },
+
+  flipBack(event) {
+    event.preventDefault()
+    let m = document.getElementById('user-container'), c = m.style;
+        c.transform = 'rotateX(359deg)';
+  },
+
   render() {
     console.log(this.props.location.loacation);
     const { restaurants } = this.props;
@@ -42,10 +54,27 @@ const UserContainer = React.createClass ({
         <div id='map-cont'>
           <div id='map'></div>
         </div>
-        <div>
-          {this.props.restaurants.map((restaurant) => {
-            if (this.props.location.location) {
-              if(this.props.location.location.toLowerCase() === restaurant.location.toLowerCase()) {
+        <div className="toList" onClick={this.flipBox}>
+          ▼
+        </div>
+        <div className="table-container">
+          <div className="toMap" onClick={this.flipBack}>
+            ▲
+          </div>
+          <div className="scroll">
+            {this.props.restaurants.map((restaurant) => {
+              if (this.props.location.location) {
+                if(this.props.location.location.toLowerCase() === restaurant.location.toLowerCase()) {
+                  return (
+                    <ListWidget
+                    key={restaurant.id}
+                    location={this.props.location}
+                    reservations={this.props.reservations}
+                    restaurant={restaurant}
+                    button1={AddReservationBtn}/>
+                  )
+                }
+              } else {
                 return (
                   <ListWidget
                   key={restaurant.id}
@@ -55,17 +84,8 @@ const UserContainer = React.createClass ({
                   button1={AddReservationBtn}/>
                 )
               }
-            } else {
-              return (
-                <ListWidget
-                key={restaurant.id}
-                location={this.props.location}
-                reservations={this.props.reservations}
-                restaurant={restaurant}
-                button1={AddReservationBtn}/>
-              )
-            }
-          })}
+            })}
+          </div>
         </div>
       </div>
     );

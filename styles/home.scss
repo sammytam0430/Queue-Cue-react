@@ -50,7 +50,7 @@ $spacing-unit: $base-line-height;
   to {transform:rotate(-360deg);}
 }
 
-@keyframes top {
+@keyframes headtop {
   0% {
     width: 0;
   }
@@ -59,13 +59,18 @@ $spacing-unit: $base-line-height;
   }
 }
 
-@keyframes bottom {
+@keyframes headbottom {
   0% {
     width: 0%;
   }
   100% {
     width: 100%;
   }
+}
+
+body {
+  background: url(https://www.clipartsgram.com/image/1127858435-background-images-for-websites-24.jpg) top no-repeat;
+  background-attachment: fixed;
 }
 
 #user-nav {
@@ -143,13 +148,13 @@ $spacing-unit: $base-line-height;
 }
 
 .line1 {
-  animation: top 4.5s 1 forwards;
+  animation: headtop 4.5s 1 forwards;
 }
 
 .line2 {
   right: 0;
   top: 0;
-  animation: bottom 3.5s 1 forwards ;
+  animation: headbottom 3.5s 1 forwards ;
 }
 
 .search-bar input {
@@ -160,48 +165,115 @@ $spacing-unit: $base-line-height;
   width: 100%;
 }
 
+
 #map-cont {
-  margin: 20% auto;
-  width: 1000px;
-  height: 450px;
-  -moz-border-radius: 150px;
-  -webkit-border-radius: 150px;
-  border-radius: 150px;
-  -webkit-mask-image: url(http://spencermortensen.com/articles/bezier-circle/images/bezier-circle-big.jpg)
+
 }
 
 #map {
   width: 100%;
-  height: 110%;
+  height: 101%;
+  opacity: .95;
 }
 
 #reserved-spot {
   opacity: 0.8;
-  background-color: #355C7D;
-}
-
-#user-container {
-  color: black;
+  background-color: #249393;
+  border-bottom: black solid 2pt;
 }
 
 .restaurant-table {
-  border: solid 1pt black;
-  width: 20%;
+  border: solid 6pt white;
   display: inline-flex;
+  justify-content: space-around;
+  align-items: baseline;
   margin: 1em;
+  flex-direction: column;
+  width: 250px;
+  height: 350px;
+  padding: 1.7em;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
-/*.listOfRes {
-  background:#181818;
-  color:#FFF;
-  position: absolute;
-  top: -250px;
-  left: 0;
-  width: 100%;
-  height: 250px;
-  padding: 20px;
-  transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
-  overflow: hidden;
-  box-sizing: border-box;
+.restaurant-table:hover {
+  border: solid 6pt #249393;
+  background-color: rgba(0, 0, 0, 0.5);
 }
-*/
+
+.restaurant-table > div {
+  font-size: 20pt;
+  color: white;
+  font-weight: bolder;
+}
+
+.listOfRes {
+  height: 300px;
+  overflow: scroll;
+}
+
+/* Set-up */
+body {
+  -webkit-perspective: 4000px; /* <-NB */
+}
+
+/* Container box to set the sides relative to */
+#user-container {
+  color: black;
+  -webkit-transition: -webkit-transform 2s;
+  transition: transform 2s; /* Animate the transform properties */
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d; /* <-NB */
+}
+
+/* Position the faces */
+#map-cont {
+  margin: 200px auto 20px auto;
+  width: 1000px;
+  height: 400px;
+
+  -webkit-transform: translateZ(175px);
+  transform: translateZ(175px);
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 10px;
+  border-radius: 100px;
+  -webkit-mask-image: url(http://spencermortensen.com/articles/bezier-circle/images/bezier-circle-big.jpg)
+}
+
+.table-container {
+  margin-top: -300px;
+  -webkit-transform: rotateX(-90deg) translateZ(90px);
+  transform: rotateX(-90deg) translateZ(90px);
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.scroll {
+  height: 400px;
+  overflow-y: scroll;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
+
+.toMap {
+  font-size: 30px;
+  overflow-y: visible;
+  animation: bounce 2s infinite;
+}
+
+.toList {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  animation: bounce 2s infinite;
+}
