@@ -22,6 +22,7 @@ window.onload = function() {
         }
       };
 
+      // Initialize map
       map = new google.maps.Map(document.getElementById('map'), {
         center: {lat: pos.lat, lng: pos.lng},
         mapTypeControl: false,
@@ -254,29 +255,33 @@ window.onload = function() {
         ]
       });
 
+      // Create user location marker
       createMarker(pos);
       map.setCenter(pos);
 
+      // Initialize infoWindow
+      infoWindow = new google.maps.InfoWindow({map: map});
+      infoWindow.close();
+
+      // Create recenter map button
       var centerControlDiv = document.createElement('div');
       var centerControl = new CenterControl(centerControlDiv, map);
-
       centerControlDiv.index = 1;
       map.controls[google.maps.ControlPosition.TOP_CENTER].push(centerControlDiv);
 
+      // Default search according to user location
       request = {
         location: pos,
         radius: 200,
         type: ['restaurant']
       };
-
-      infoWindow = new google.maps.InfoWindow({map: map});
       service = new google.maps.places.PlacesService(map);
       service.nearbySearch(request, callback);
 
+      // New search when right click on map
       google.maps.event.addListener(map,'rightclick', (event) => {
         map.setCenter(event.latLng);
         clearResults(markers);
-
         request = {
           location: event.latLng,
           radius: 200,
@@ -284,6 +289,10 @@ window.onload = function() {
         };
         service.nearbySearch(request, callback);
       })
+
+      var input = document.getElementById('pac-input');
+      var searchBox = new google.maps.places.SearchBox(input);
+      map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
     })
   }
 
@@ -318,6 +327,7 @@ window.onload = function() {
     });
   }
 
+  // Callback for search
   function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
       for (var i = 0; i < results.length; i++) {
