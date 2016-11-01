@@ -14,6 +14,20 @@ function addRestaurants(data) {
   }
 }
 
+function filterRestaurants(restaurants) {
+  return {
+    type: 'FILTER_RESTAURANTS',
+    restaurants: restaurants
+  }
+}
+
+function resetRestaurantList(restaurants) {
+  return {
+    type: 'RESET_RESTAURANTS',
+    restaurants: restaurants
+  }
+}
+
 function reservationList(data) {
   return {
     type: 'ADD_RESERVATIONS',
@@ -70,6 +84,8 @@ function deleteCustomer(customerId) {
 export default  {
   addRestaurant,
   addRestaurants,
+  filterRestaurants,
+  resetRestaurantList,
   reservationList,
   deleteRes,
   addReservation,
