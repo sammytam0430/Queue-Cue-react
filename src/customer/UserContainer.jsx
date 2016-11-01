@@ -43,11 +43,10 @@ const UserContainer = React.createClass ({
   flipBack(event) {
     event.preventDefault()
     let m = document.getElementById('user-container'), c = m.style;
-        c.transform = 'rotateX(359deg)';
+        c.transform = 'rotateX(4deg)';
   },
 
   render() {
-    console.log(this.props.location.loacation);
     const { restaurants } = this.props;
     return (
 
