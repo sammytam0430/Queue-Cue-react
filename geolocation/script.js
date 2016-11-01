@@ -103,7 +103,7 @@ window.onload = function() {
             "elementType": "geometry.fill",
             "stylers": [
               {
-                "color": "#b7eef5"
+                "color": "#373737"
               }
             ]
           },
