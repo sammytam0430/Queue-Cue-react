@@ -95,12 +95,8 @@ function customers(state = [{active: false}], action) {
   }
 }
 
-<<<<<<< HEAD
 const reducers = combineReducers ({
   location,
-=======
-const reducers = combineReducers({
->>>>>>> d1e1a1ab23333aada899341102f4716c3074f3cb
   restaurants,
   reservations,
   customers
