@@ -24,6 +24,15 @@ function mapDispatchToProps(dispatch) {
           let search = searchText.toLowerCase().replace(/\s+/g, '');
           return restName.includes(search)
         })
+
+        if (searchResults.length === 0) {
+          searchResults = remove(restaurants, function(restaurant) {
+            let foodType = restaurant.food_type.toLowerCase().replace(/\s+/g, '');
+            let search = searchText.toLowerCase().replace(/\s+/g, '');
+            return foodType.includes(search)
+          })
+        }
+        console.log("searchresults ", searchResults);
         dispatch(RestaurantActions.filterRestaurants(searchResults));
       })
     },

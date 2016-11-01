@@ -15,7 +15,7 @@ function restaurants(state = [], action) {
       return state.concat(action.restaurants);
     case 'FILTER_RESTAURANTS':
       let negative_results = difference(state, action.restaurants)
-      let newState = negative_results.concat(action.restaurants);
+      let newState = action.restaurants.concat(negative_results);
       let index = action.restaurants.length;
       return newState.slice(0, index)
       break;
