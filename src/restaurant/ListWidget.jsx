@@ -5,19 +5,22 @@ import CustomerClient from '../customer_clients/customers.js';
 import CompletedBtn from './CompletedReservationBtn.jsx';
 
 function mapStateToProps(state) {
-  return state
+  return {
+    reservations: state.reservations
+  }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    seatedTable(resId) {
-      CustomerClient.deleteRes(resId, dispatch);
+    deleteReservation(resId, customerId) {
+      CustomerClient.deleteResAndCustomer(resId, customerId, dispatch)
       }
     }
   }
 
 const ListWidget = React.createClass({
     render () {
+      console.log("res20 ", this.props.reservations);
     return (
       <tbody>
         {this.props.reservations &&
@@ -31,7 +34,7 @@ const ListWidget = React.createClass({
                   <button
                     id={res.id}
                     className="btn btn-success btn-sm"
-                    onClick={() => this.props.seatedTable(res.id)}
+                    onClick={() => this.props.deleteReservation(res.id, res.customer_id)}
                     >
                     Delete
                   </button>

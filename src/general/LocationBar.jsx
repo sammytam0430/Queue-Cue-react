@@ -18,7 +18,7 @@ let LocationBar = ({ dispatch }) => {
           handleSubmit(location.value, dispatch)
         }
       }}>
-      <input placeholder="location" ref={node => {
+      <input id='pac-input' placeholder="location" ref={node => {
         location = node
       }} />
       </form>

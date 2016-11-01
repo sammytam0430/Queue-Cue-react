@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { findIndex } from 'lodash'
+import { findIndex, difference } from 'lodash'
 
 function restaurants(state = [], action) {
   switch (action.type) {
@@ -13,11 +13,21 @@ function restaurants(state = [], action) {
       }]
     case 'ADD_RESTAURANTS':
       return state.concat(action.restaurants);
-
+    case 'FILTER_RESTAURANTS':
+      let negative_results = difference(state, action.restaurants)
+      let newState = action.restaurants.concat(negative_results);
+      let index = action.restaurants.length;
+      return newState.slice(0, index)
+      break;
+    case 'RESET_RESTAURANTS':
+      let diff = difference(action.restaurants, state);
+      return diff
+      break;
     default:
       return state
   }
 };
+
 
 function reservations(state = [], action) {
   switch (action.type) {
@@ -92,6 +102,8 @@ function customers(state = [{active: false}], action) {
       return state
   }
 }
+
+
 
 const reducers = combineReducers ({
   location,
