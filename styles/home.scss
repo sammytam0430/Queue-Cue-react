@@ -70,8 +70,7 @@ $spacing-unit: $base-line-height;
 
 body {
   background: url(http://www.androidguys.com/wp-content/uploads/2014/02/minimal_modern1.png) no-repeat;
-  background-position: center;
-  background-attachment: fixed;
+  background-position: 50% 68%;
 }
 
 #user-nav {
@@ -182,7 +181,7 @@ body {
   border: solid 5pt white;
   display: inline-flex;
   justify-content: space-around;
-  align-items: baseline;
+  align-items: center;
   margin: 1em;
   flex-direction: column;
   width: 250px;
@@ -197,14 +196,17 @@ body {
 }
 
 .restaurant-table > div {
-  font-size: 20pt;
+  font-size: 18pt;
   color: white;
   font-weight: bolder;
 }
 
 .listOfRes {
+  position: flex;
+  flex-direction: column;
+  font-size: 15pt;
   height: 200px;
-  width: 150px;
+  width: 170px;
   overflow: scroll;
 }
 
@@ -224,12 +226,12 @@ body {
 
 /* Position the faces */
 #map-cont {
-  margin: 200px auto 20px auto;
+  margin: 192px auto 20px auto;
   width: 1000px;
   height: 400px;
 
-  -webkit-transform: translateZ(160px);
-  transform: translateZ(160px);
+  -webkit-transform: translateZ(170px);
+  transform: translateZ(170px);
   -moz-border-radius: 100px;
   -webkit-border-radius: 10px;
   border-radius: 100px;
