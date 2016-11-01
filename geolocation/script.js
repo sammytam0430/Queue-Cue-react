@@ -333,8 +333,7 @@ window.onload = function() {
         map: map,
         position: place.geometry.location,
         title: place.name,
-        icon: 'http://maps.google.com/mapfiles/ms/micons/red-dot.png',
-        draggable: true
+        icon: 'http://maps.google.com/mapfiles/ms/micons/red-dot.png'
       });
     } else {
       marker = new google.maps.Marker({
@@ -345,8 +344,6 @@ window.onload = function() {
       });
     }
 
-    marker.addListener('click', toggleBounce);
-
     function toggleBounce() {
       if (marker.getAnimation() !== null) {
         marker.setAnimation(null);
@@ -356,6 +353,7 @@ window.onload = function() {
     }
 
     google.maps.event.addListener(marker, 'click', function() {
+      toggleBounce();
       infoWindow.setContent(place.name);
       infoWindow.open(map, this);
     });
