@@ -48,6 +48,17 @@ function reservations(state = [], action) {
   }
 }
 
+function location(state = {}, action) {
+  switch (action.type) {
+    case 'LOCATION':
+      return {...state,
+      location: action.location
+      }
+    default:
+      return state
+  }
+}
+
 function customers(state = [{active: false}], action) {
   switch (action.type) {
     case 'ADD_RESERVATION':
@@ -82,7 +93,8 @@ function customers(state = [{active: false}], action) {
   }
 }
 
-const reducers = combineReducers({
+const reducers = combineReducers ({
+  location,
   restaurants,
   reservations,
   customers
