@@ -290,10 +290,31 @@ window.onload = function() {
         service.nearbySearch(request, callback);
       })
 
+      // Create the search box and link it to the UI element.
       var input = document.getElementById('pac-input');
       var searchBox = new google.maps.places.SearchBox(input);
-      map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-    })
+
+      // Listen for the event fired when the user selects a prediction and retrieve
+      // more details for that place.
+      searchBox.addListener('places_changed', function() {
+        var places = searchBox.getPlaces();
+
+        if (places.length == 0) {
+          return;
+        }
+
+        map.setCenter(places[0].geometry.location);
+        // Clear out the old markers.
+        clearResults(markers);
+        // Perform search
+        request = {
+          location: places[0].geometry.location,
+          radius: 200,
+          type: ['restaurant']
+        };
+        service.nearbySearch(request, callback);
+      });
+    });
   }
 
   function CenterControl(controlDiv, map) {

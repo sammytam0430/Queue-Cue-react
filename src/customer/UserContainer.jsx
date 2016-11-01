@@ -47,7 +47,6 @@ const UserContainer = React.createClass ({
   },
 
   render() {
-    console.log(this.props.location.loacation);
     const { restaurants } = this.props;
     return (
 
