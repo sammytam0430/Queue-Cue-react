@@ -14,12 +14,6 @@ function mapDispatchToProps(dispatch) {
       })
     }
 
-    // function seatTable(resId) {
-    //   RestaurantClient.seatTable(function(resId) {
-    //
-    //     // dispatch(RestaurantActions.completed)
-    //   })
-    // }
   }
 }
 

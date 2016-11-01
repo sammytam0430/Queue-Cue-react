@@ -187,6 +187,10 @@ $spacing-unit: $base-line-height;
   margin: 1em;
 }
 
+form {
+  width: 100%;
+}
+
 /*.listOfRes {
   background:#181818;
   color:#FFF;
@@ -201,4 +205,3 @@ $spacing-unit: $base-line-height;
   box-sizing: border-box;
 }
 */
-

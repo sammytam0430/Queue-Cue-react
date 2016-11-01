@@ -25,7 +25,7 @@ const UserMainLayout = React.createClass ({
             <div className="triangle triangle3">
             </div>
             </span>
-          <div className="line line1" />
+          <div className="line line1 row" />
             <SearchBar />
             <LocationBar />
           <div className="line line2" />
