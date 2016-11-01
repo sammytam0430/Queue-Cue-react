@@ -16,16 +16,19 @@ const TimeWidget = React.createClass ({
 
   render() {
   const popoverBottom = (
-  <Popover id="ppopover-trigger-click-root-close" title="Popover Bottom">
+  <Popover id="ppopover-trigger-click-root-close" title="Waiting List">
     <FormWidget reservations={this.props.reservations}/>
   </Popover>
   );
-
+  let time = 0;
     return (
       <div>
+        {this.props.reservations.map((res)=>{
+          time += res.time_added;
+        })}
         <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={popoverBottom}>
           <div>
-            TIME CLICK ME
+            {time} Minutes
           </div>
         </OverlayTrigger>
       </div>

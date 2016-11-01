@@ -333,7 +333,7 @@ window.onload = function() {
         map: map,
         position: place.geometry.location,
         title: place.name,
-
+        icon: 'http://maps.google.com/mapfiles/ms/micons/man.png',
       });
     } else {
       marker = new google.maps.Marker({

@@ -50,6 +50,7 @@ const UserContainer = React.createClass ({
     console.log(this.props.location.loacation);
     const { restaurants } = this.props;
     return (
+
     <div id="user-container">
       <div id='map-cont'>
         <div id='map'></div>
