@@ -43,10 +43,10 @@ function addReservation(new_reservation, new_customer) {
   }
 }
 
-function addLocation(userLocation) {
+function addLocation(location) {
   return {
     type: 'LOCATION',
-    userLocation: userLocation
+    location: location
   }
 }
 
@@ -74,5 +74,6 @@ export default  {
   deleteRes,
   addReservation,
   showCustomerReservation,
-  deleteCustomer
+  deleteCustomer,
+  addLocation
 }

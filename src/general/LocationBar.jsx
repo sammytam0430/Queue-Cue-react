@@ -2,29 +2,28 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import LocationActions from '../actions.js';
 
-// console.log({dispatch});
 
-const LocationBar = React.createClass ({
+function handleSubmit(location, dispatch) {
+  dispatch(LocationActions.addLocation(location))
+}
 
-  handleSubmit: function(location) {
-    // console.log('!!!!!!!!!!!!!!11');
-    // dispatch(LocationActions.addLocation(location));
-  },
+let LocationBar = ({ dispatch }) => {
+  let location
 
-  render() {
-    return (
-      <div className='location-bar'>
-        <input type="text" placeholder="Location" ref='location'
-        onKeyPress={e => {
-          if(e.key === 'Enter') {
-            e.preventDefault();
-            console.log('!!!!!!!!!!!!');
-            this.handleSubmit(this.refs.location.value)
-          }
-        }}/>
-      </div>
-    );
-  }
-});
+  return (
+    <div className='location-bar'>
+      <form className='location-form' action="/" onKeyPress={e => {
+        if(e.key === 'Enter') {
+          e.preventDefault()
+          handleSubmit(location.value, dispatch)
+        }
+      }}>
+      <input placeholder="location" ref={node => {
+        location = node
+      }} />
+      </form>
+    </div>
+  );
+}
 
-export default LocationBar;
+export default connect()(LocationBar);

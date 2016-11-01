@@ -22,6 +22,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
+    location: state.location,
     restaurants: state.restaurants,
     reservations: state.reservation_list
   };
@@ -34,24 +35,39 @@ const UserContainer = React.createClass ({
   },
 
   render() {
-
+    console.log(this.props.location.loacation);
     const { restaurants } = this.props;
     return (
-    <div id="user-container">
-    <div id='map-cont'>
-      <div id='map'></div>
-      </div>
-         <div>
-            {this.props.restaurants.map((restaurant) => {
+      <div id="user-container">
+        <div id='map-cont'>
+          <div id='map'></div>
+        </div>
+        <div>
+          {this.props.restaurants.map((restaurant) => {
+            if (this.props.location.location) {
+              if(this.props.location.location.toLowerCase() === restaurant.location.toLowerCase()) {
+                return (
+                  <ListWidget
+                  key={restaurant.id}
+                  location={this.props.location}
+                  reservations={this.props.reservations}
+                  restaurant={restaurant}
+                  button1={AddReservationBtn}/>
+                )
+              }
+            } else {
               return (
                 <ListWidget
                 key={restaurant.id}
+                location={this.props.location}
                 reservations={this.props.reservations}
                 restaurant={restaurant}
-                button1={AddReservationBtn}/>)
-            })}
+                button1={AddReservationBtn}/>
+              )
+            }
+          })}
         </div>
-    </div>
+      </div>
     );
   }
 });

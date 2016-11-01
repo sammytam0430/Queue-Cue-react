@@ -48,14 +48,12 @@ function reservations(state = [], action) {
   }
 }
 
-function location(state = [], action) {
+function location(state = {}, action) {
   switch (action.type) {
     case 'LOCATION':
-      return [...state,
-        {
-          userLocation: action.userLocation
-        }
-      ]
+      return {...state,
+      location: action.location
+      }
     default:
       return state
   }
