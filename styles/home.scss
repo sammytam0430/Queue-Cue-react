@@ -50,7 +50,7 @@ $spacing-unit: $base-line-height;
   to {transform:rotate(-360deg);}
 }
 
-@keyframes top {
+@keyframes headtop {
   0% {
     width: 0;
   }
@@ -59,13 +59,18 @@ $spacing-unit: $base-line-height;
   }
 }
 
-@keyframes bottom {
+@keyframes headbottom {
   0% {
     width: 0%;
   }
   100% {
     width: 100%;
   }
+}
+
+body {
+  background: url(https://www.clipartsgram.com/image/1127858435-background-images-for-websites-24.jpg) top no-repeat;
+  background-attachment: fixed;
 }
 
 #user-nav {
@@ -139,13 +144,13 @@ $spacing-unit: $base-line-height;
 }
 
 .line1 {
-  animation: top 4.5s 1 forwards;
+  animation: headtop 4.5s 1 forwards;
 }
 
 .line2 {
   right: 0;
   top: 0;
-  animation: bottom 3.5s 1 forwards ;
+  animation: headbottom 3.5s 1 forwards ;
 }
 
 .search-bar input {
@@ -156,44 +161,164 @@ $spacing-unit: $base-line-height;
   width: 100%;
 }
 
+
 #map-cont {
-  margin: 20% auto;
-  width: 1000px;
-  height: 450px;
-  -moz-border-radius: 150px;
-  -webkit-border-radius: 150px;
-  border-radius: 150px;
+  margin: 180px auto 20px auto;
+  width: 1100px;
+  height: 500px;
+  -moz-border-radius: 100px;
+  -webkit-border-radius: 10px;
+  border-radius: 100px;
   -webkit-mask-image: url(http://spencermortensen.com/articles/bezier-circle/images/bezier-circle-big.jpg)
 }
 
 #map {
   width: 100%;
-  height: 110%;
+  height: 105%;
+  opacity: .95;
 }
 
 #reserved-spot {
   opacity: 0.8;
-  background-color: #355C7D;
+  background-color: #249393;
+  border-bottom: black solid 2pt;
 }
 
-#user-container {
-  color: black;
+.table-container {
+  display:flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .restaurant-table {
-  border: solid 1pt black;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
+  border: solid 6pt white;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 1em;
+  flex-direction: column;
+  width: 300px;
+  height: 400px;
+  padding: 1.5em;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.restaurant-table:hover {
+  transform-style: preserve-3d;
+  transform: rotateX(0deg) rotateY(0deg);
+  border: solid 6pt #249393;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .restaurant-table > div {
+  font-size: 22pt;
+  color: white;
+  font-weight: bolder;
+}
+
+.listOfRes {
+  height: 200px;
+  overflow: scroll;
+}
+
+
+/*
+Optional hourglass
+<div id="loader">
+  <div id="top"></div>
+  <div id="bottom"></div>
+  <div id="line"></div>
+</div>
+
+#loader {
+  animation: loader 10s cubic-bezier(.8,0,.2,1) infinite;
+  height: 40px;
+  width: 41px;
+  top:calc(50% - 20px);
+  left:calc(50% - 20px);
+  margin: 0 auto;
+}
+
+@keyframes loader {
+  90% { transform: rotate(0deg); }
+  100% { transform: rotate(180deg); }
+}
+
+#top {
+  animation: top 10s linear infinite;
+  border-top: 20px solid black;
+  border-right: 20px solid transparent;
+  border-left: 20px solid transparent;
+  height: 0px;
+  width: 1px;
+  transform-origin: 50% 100%;
+}
+
+@keyframes top {
+  90% { transform: scale(0); }
+  100% { transform: scale(0);}
+}
+
+#bottom {
+  animation: bottom 10s linear infinite;
+  border-right: 20px solid transparent;
+  border-bottom: 20px solid black;
+  border-left: 20px solid transparent;
+  height: 0px;
+  width: 1px;
+  transform: scale(0);
+  transform-origin: 50% 100%;
 
 }
-.listOfRes {
-  height: 60px;
-  overflow: scroll;
+@keyframes bottom {
+  10% { transform: scale(0); }
+  90% { transform: scale(1); }
+  100% { transform: scale(1); }
+}
 
+#line {
+  animation: line 10s linear infinite;
+  border-left: 1px dotted black;
+  height: 0px;
+  width: 0px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+@keyframes line {
+  10% { height: 20px; }
+  100% { height: 20px; }
+}
+
+*/
+
+
+/* Set-up */
+body {
+  -webkit-perspective: 4000px; /* <-NB */
+}
+
+/* Container box to set the sides relative to */
+#user-container {
+  color: black;
+  -webkit-transition: -webkit-transform 2s;
+  transition: transform 2s; /* Animate the transform properties */
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d; /* <-NB */
+}
+
+
+/* Position the faces */
+#map-cont {
+  margin-top: 250px;
+  -webkit-transform: translateZ(50px);
+  transform: translateZ(50px);
+}
+
+.table-container {
+  -webkit-transform: rotateX(-90deg) translateZ(-50px);
+  transform: rotateX(-90deg) translateZ(-50px);
 }
 
 

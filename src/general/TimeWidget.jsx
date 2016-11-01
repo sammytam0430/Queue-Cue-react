@@ -15,16 +15,18 @@ import { Button, OverlayTrigger, Popover } from 'react-bootstrap';
 const TimeWidget = React.createClass ({
 
   render() {
-  const popoverTop = (
-  <Popover id="ppopover-trigger-click-root-close" title="Popover top">
+  const popoverBottom = (
+  <Popover id="ppopover-trigger-click-root-close" title="Popover Bottom">
     <FormWidget reservations={this.props.reservations}/>
   </Popover>
   );
 
     return (
       <div>
-        <OverlayTrigger trigger="click" rootClose placement="top" overlay={popoverTop}>
-          <button>HERE</button>
+        <OverlayTrigger trigger="click" rootClose placement="bottom" overlay={popoverBottom}>
+          <div>
+            TIME CLICK ME
+          </div>
         </OverlayTrigger>
       </div>
     );

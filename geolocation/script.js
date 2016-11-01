@@ -88,7 +88,7 @@ window.onload = function() {
           "elementType": "geometry.fill",
           "stylers": [
             {
-              "color": "#b7eef5"
+              "color": "#249393"
             }
           ]
         },
@@ -319,7 +319,7 @@ window.onload = function() {
         map: map,
         position: place.geometry.location,
         title: place.name,
-        icon: 'http://maps.google.com/mapfiles/ms/micons/red-dot.png',
+        icon: 'http://maps.google.com/mapfiles/ms/micons/man.png',
         draggable: true
       });
     } else {
@@ -327,7 +327,7 @@ window.onload = function() {
         map: map,
         position: place.geometry.location,
         title: place.name,
-        icon: 'http://maps.google.com/mapfiles/ms/micons/blue-dot.png'
+        icon: 'http://maps.google.com/mapfiles/ms/micons/ltblue-dot.png'
       });
     }
 
