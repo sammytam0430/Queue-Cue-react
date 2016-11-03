@@ -13,14 +13,13 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     deleteReservation(resId, customerId) {
-      CustomerClient.deleteResAndCustomer(resId, customerId, dispatch)
+      CustomerClient.deleteResAndCustomerByRestaurant(resId, customerId, dispatch)
       }
     }
   }
 
 const ListWidget = React.createClass({
     render () {
-      console.log("res20 ", this.props.reservations);
     return (
       <tbody>
         {this.props.reservations &&
@@ -29,7 +28,6 @@ const ListWidget = React.createClass({
               <tr key={res.id}>
                 <td>{res.party_size}</td>
                 <td>{res.time_added}</td>
-                <td>{JSON.stringify(res.completed)}</td>
                 <td>
                   <button
                     id={res.id}

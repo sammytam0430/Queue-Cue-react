@@ -103,13 +103,28 @@ function customers(state = [{active: false}], action) {
   }
 }
 
+function time(state = [], action) {
+  switch (action.type) {
+    case 'GET_TOTAL_TIME':
+      return [...state,
+        {
+          restaurant_id: action.resId,
+          total_time: action.total_time
+        }
+      ]
+    default:
+      return state
+  }
+}
+
 
 
 const reducers = combineReducers ({
   location,
   restaurants,
   reservations,
-  customers
+  customers,
+  time
 });
 
 export default reducers;
