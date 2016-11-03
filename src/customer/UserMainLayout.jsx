@@ -11,7 +11,8 @@ const UserMainLayout = React.createClass ({
       <div>
         <nav id="user-nav">
           <div className="title">
-            Queue
+            Q
+            <p><em>A better way to stand in line</em></p>
           </div>
           <span className="queuer queuer1">
             <div className="triangle triangle1">

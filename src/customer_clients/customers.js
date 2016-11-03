@@ -18,10 +18,11 @@ function newRes(restId, name, phone, email, party_size, time_added, cb) {
 
 ///////Promises
 function deleteResAndCustomer(resId, customer_id, dispatch) {
-  Promise.all([
     deleteResPromise(resId, dispatch)
     .then(deleteCustomerPromise(customer_id, dispatch))
-  ]);
+    .catch(function(err, data) {
+      console.log("Promise error", err);
+    })
 }
 
 function deleteResPromise(resId, dispatch) {
