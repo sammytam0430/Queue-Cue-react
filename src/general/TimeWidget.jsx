@@ -37,10 +37,10 @@ const TimeWidget = React.createClass ({
           </div>
         }
         </OverlayTrigger>
+
       </div>
     );
   }
 });
 
 export default TimeWidget;
-

@@ -90,6 +90,13 @@ function totalResTime(resId, total_time) {
   }
 }
 
+function allRestsAndTimes(restaurantsAndTimes) {
+  return {
+    type: 'GET_ALL_RESTS_AND_TIMES',
+    restaurantsAndTimes: restaurantsAndTimes
+  }
+}
+
 export default  {
   addRestaurant,
   addRestaurants,
@@ -101,5 +108,6 @@ export default  {
   showCustomerReservation,
   deleteCustomer,
   addLocation,
-  totalResTime
+  totalResTime,
+  allRestsAndTimes
 }

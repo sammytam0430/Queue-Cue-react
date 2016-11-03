@@ -6,6 +6,7 @@ import RestaurantActions from '../actions.js';
 import CustomerClient from '../customer_clients/customers.js';
 import CompletedBtn from '../restaurant/CompletedReservationBtn.jsx';
 import LocationActions from '../actions.js';
+import { store } from '../index.jsx';
 
 
 function mapStateToProps(state) {
@@ -16,16 +17,12 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(state) {
   return {
-    getTime() {
-      
     }
-  }
 }
+
 
 const ListWidget = React.createClass ({
 
-  componentDidMount() {
-  },
 
   render() {
 
@@ -34,7 +31,8 @@ const ListWidget = React.createClass ({
       <div className='restaurant-table'>
         <div>
           {<TimeWidget resId={this.props.restaurant.id}
-        reservations={this.props.restaurant.reservations}/>}
+        reservations={this.props.restaurant.reservations}
+        />}
         </div>
         <div>
           {this.props.restaurant.name}

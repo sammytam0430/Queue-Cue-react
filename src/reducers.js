@@ -112,6 +112,19 @@ function time(state = [], action) {
           total_time: action.total_time
         }
       ]
+    case 'GET_ALL_RESTS_AND_TIMES':
+      return state.concat(action.restaurantsAndTimes)
+    case 'ADD_RESERVATION':
+      let newState = [];
+      state.map(function(restaurant) {
+        if (restaurant.restaurant_id === action.restaurant_id) {
+          restaurant.total_reso_time += action.time_added
+          newState.push(restaurant)
+        } else {
+          newState.push(restaurant)
+        }
+      })
+      return newState
     default:
       return state
   }

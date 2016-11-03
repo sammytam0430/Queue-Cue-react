@@ -14,7 +14,8 @@ function mapDispatchToProps(dispatch) {
   return {
     storeData() {
       RestaurantClient.get(function(restaurants){
-        dispatch(RestaurantActions.addRestaurants(restaurants));
+        dispatch(RestaurantActions.addRestaurants(restaurants.restaurants));
+        dispatch(RestaurantActions.allRestsAndTimes(restaurants.time_array))
       });
     }
   };
@@ -24,13 +25,14 @@ function mapStateToProps(state) {
   return {
     location: state.location,
     restaurants: state.restaurants,
-    reservations: state.reservation_list
+    reservations: state.reservation_list,
+    time: state.time
   };
 };
 
 const UserContainer = React.createClass ({
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.storeData();
   },
 
@@ -62,7 +64,7 @@ const UserContainer = React.createClass ({
           ▲
         </div>
         <div className="scroll">
-          {this.props.restaurants.map((restaurant) => {
+          {this.props.restaurants.map((restaurant, index) => {
             if (this.props.location.location) {
               if(this.props.location.location.toLowerCase() === restaurant.location.toLowerCase()) {
                 return (
@@ -71,7 +73,8 @@ const UserContainer = React.createClass ({
                   location={this.props.location}
                   reservations={this.props.reservations}
                   restaurant={restaurant}
-                  button1={AddReservationBtn}/>
+                  button1={AddReservationBtn}
+                  />
                 )
               }
             } else {
@@ -81,7 +84,8 @@ const UserContainer = React.createClass ({
                 location={this.props.location}
                 reservations={this.props.reservations}
                 restaurant={restaurant}
-                button1={AddReservationBtn}/>
+                button1={AddReservationBtn}
+                />
               )
             }
           })}
