@@ -27,10 +27,10 @@ const ListWidget = React.createClass ({
           {this.props.restaurant.name}
         </div>
         <div>
-          Food: {this.props.restaurant.food_type}
+          {this.props.restaurant.food_type}
         </div>
         <div>
-          Location: {this.props.restaurant.location}
+          {this.props.restaurant.location}
         </div>
         <div>
           {<this.props.button1 {... this.props.restaurant} />}
