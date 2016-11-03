@@ -25,6 +25,8 @@ function deleteResAndCustomer(resId, customer_id, dispatch) {
     })
 }
 
+
+
 function deleteResPromise(resId, dispatch) {
   return new Promise(function (resolve, reject) {
     ajax.delete('http://localhost:3000/reservations/' + resId)
@@ -50,6 +52,28 @@ function deleteCustomerPromise(customerId, dispatch) {
   })
 }
 /////////////////
+function deleteResAndCustomerByRestaurant(resId, customer_id, dispatch) {
+  deleteResPromiseByRestaurant(resId, customer_id, dispatch)
+  .then(deleteCustomerPromise(customer_id, dispatch))
+  .catch(function(err, data) {
+    console.log("Promise error", err);
+  })
+}
+
+function deleteResPromiseByRestaurant(resId, customer_id, dispatch) {
+  return new Promise(function (resolve, reject) {
+    ajax.delete('http://localhost:3000/reservations/' + resId)
+    .send({customer_id: customer_id})
+    .end(function (err, res){
+      if (err || !res.ok) {
+        console.log('error!!!!!!', err);
+        reject(new Error());
+      }
+      resolve(dispatch(RestaurantActions.deleteRes(resId)));
+    })
+  })
+}
+/////////////////
 
 
 
@@ -69,5 +93,6 @@ function getCustomers(cb) {
 export default {
   newRes,
   getCustomers,
-  deleteResAndCustomer
+  deleteResAndCustomer,
+  deleteResAndCustomerByRestaurant
 }

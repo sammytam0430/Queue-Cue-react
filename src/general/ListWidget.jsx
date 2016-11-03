@@ -9,10 +9,21 @@ import LocationActions from '../actions.js';
 
 
 function mapStateToProps(state) {
-  return state
+  return {
+    total_time: state.time
+  }
+}
+
+function mapDispatchToProps(state) {
+  return {
+
+  }
 }
 
 const ListWidget = React.createClass ({
+
+  componentDidMount() {
+  },
 
   render() {
 
@@ -43,4 +54,4 @@ const ListWidget = React.createClass ({
 
 
 
-export default (ListWidget);
+export default connect(mapStateToProps, mapDispatchToProps)(ListWidget);

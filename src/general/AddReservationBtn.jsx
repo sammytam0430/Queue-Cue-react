@@ -40,7 +40,6 @@ function mapDispatchToProps(dispatch) {
       function(party){
         let new_customer = party.new_customer;
         let new_reservation = party.new_reservation;
-        console.log("reso, customer, ", new_reservation, new_customer);
         dispatch(ReservationActions.addReservation(new_reservation, new_customer));
         alert("Thanks for queuing up!");
       })

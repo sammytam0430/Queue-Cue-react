@@ -28,10 +28,11 @@ function resetRestaurantList(restaurants) {
   }
 }
 
-function reservationList(data) {
+function reservationList(queue_list, total_time) {
   return {
     type: 'ADD_RESERVATIONS',
-    reservation_list: data
+    reservation_list: queue_list,
+    total_time: total_time
   }
 }
 
@@ -81,6 +82,14 @@ function deleteCustomer(customerId) {
   }
 }
 
+function totalResTime(resId, total_time) {
+  return {
+    type: 'GET_TOTAL_TIME',
+    resId: resId,
+    total_time: total_time
+  }
+}
+
 export default  {
   addRestaurant,
   addRestaurants,
@@ -91,5 +100,6 @@ export default  {
   addReservation,
   showCustomerReservation,
   deleteCustomer,
-  addLocation
+  addLocation,
+  totalResTime
 }
