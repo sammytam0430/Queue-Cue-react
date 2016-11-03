@@ -69,6 +69,7 @@ $spacing-unit: $base-line-height;
 }
 
 body {
+  overflow: hidden;
   background: url(http://www.androidguys.com/wp-content/uploads/2014/02/minimal_modern1.png) no-repeat;
   background-position: 50% 68%;
 }
@@ -181,12 +182,11 @@ body {
   border: solid 5pt white;
   display: inline-flex;
   justify-content: space-around;
-  align-items: center;
   margin: 1em;
   flex-direction: column;
-  width: 250px;
-  height: 350px;
-  padding: 1.7em;
+  width: 22%;
+  height: 90%;
+  padding: 1.4em;
   background-color: rgba(0, 0, 0, 0.3);
 }
 
@@ -201,7 +201,7 @@ body {
   font-weight: bolder;
 }
 
-.listOfRes {
+#listOfRes {
   position: flex;
   flex-direction: column;
   font-size: 15pt;
@@ -226,12 +226,12 @@ body {
 
 /* Position the faces */
 #map-cont {
-  margin: 192px auto 20px auto;
-  width: 1000px;
+  margin: 250px auto 20px auto;
+  width: 100%;
   height: 400px;
 
-  -webkit-transform: translateZ(170px);
-  transform: translateZ(170px);
+  -webkit-transform: rotateX(0deg) translateZ(170px);
+  transform: rotateX(0deg) translateZ(170px);
   -moz-border-radius: 100px;
   -webkit-border-radius: 10px;
   border-radius: 100px;
@@ -257,7 +257,7 @@ form {
 }
 */
 .table-container {
-  margin-top: -300px;
+  margin-top: -275px;
   -webkit-transform: rotateX(-90deg) translateZ(90px);
   transform: rotateX(-90deg) translateZ(90px);
   display: flex;
@@ -296,3 +296,4 @@ form {
   justify-content: center;
   animation: bounce 2s infinite;
 }
+
