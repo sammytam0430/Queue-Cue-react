@@ -297,3 +297,12 @@ form {
   animation: bounce 2s infinite;
 }
 
+.modal-body {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.modal-body > form, input {
+  position: flex;
+  width: 100%;
+}
